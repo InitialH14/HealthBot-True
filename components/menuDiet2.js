@@ -28,7 +28,7 @@ const MenuDiet2 = () => {
               style={styles.input}
               onChangeText={setText}
               value={text}
-              placeholder="Senin, 29 April 2024"
+              placeholder="Senin, 30 April 2024"
               placeholderTextColor="#717171"
               textAlign="center"
             />
