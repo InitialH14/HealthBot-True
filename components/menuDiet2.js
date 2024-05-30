@@ -22,7 +22,7 @@ const MenuDiet2 = () => {
             <Text style={styles.headerTitle}>Page Title</Text>
           </View>
           <View style={styles.body}>
-            <Text style={styles.question}>Sudahkah kamu {"\n"}makan makanan bergizi?</Text>
+            <Text style={styles.question}>Sudahkah kamu {"\n"}Makan Makanan bergizi?</Text>
             <TextInput
               ref={textInputRef}
               style={styles.input}
