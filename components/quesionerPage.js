@@ -59,7 +59,7 @@ const QuesionerPage = () => {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Jam Kerja per hari</Text>
+            <Text style={styles.label}>Jam Kerja perr hari</Text>
             <Controller
               control={control}
               rules={{ required: 'Jam kerja diperlukan' }}
