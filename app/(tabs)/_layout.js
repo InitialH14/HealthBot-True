@@ -1,37 +1,22 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import HomePage from '../HomePage';
+import RekomendasiMenuDietScreen from '../RekomendasiMenuDietScreen';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  
+  const Tab = createBottomTabNavigator();
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="SignIn"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Home"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomePage} />
+      <Tab.Screen name="Menu" component={RekomendasiMenuDietScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
   );
 }
