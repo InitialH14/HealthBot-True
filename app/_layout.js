@@ -1,12 +1,14 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import GrafikforearmWidget from './GrafikforearmWidget';
 
+import Signinpage from './Signinpage';
+import HomePage from './HomePage';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -25,13 +27,21 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+  const Stack = createNativeStackNavigator();
+  return(
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack.Navigator initialRouteName="SignIn">
+          <Stack.Screen
+            name="Signinpage"
+            component={Signinpage}
+            options={{title: 'Sign In'}}
+          />
+          <Stack.Screen
+            name="HomePage"
+            component={HomePage}
+            options={{title: 'Signup'}}
+          />
+        </Stack.Navigator>
     </ThemeProvider>
   );
 }

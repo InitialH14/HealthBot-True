@@ -26,36 +26,36 @@ const GrafikrenangScreen = () => {
   return (
     <TouchableOpacity activeOpacity={1} onPress={handleDismissKeyboard} style={styles.container}>
       <View style={styles.header}>
-        <Image source={require('./assets/images/Layer_1.png')} style={styles.headerImage} />
+        <Image source={require('../assets/assets renang/images/Layer_1.png')} style={styles.headerImage} />
         <Text style={styles.headerText}>HEALTHBOT</Text>
-        <Image source={require('./assets/images/Frame_3.png')} style={styles.headerImageRight} />
+        <Image source={require('../assets/assets renang/images/Frame_3.png')} style={styles.headerImageRight} />
       </View>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>Renang</Text>
         <View style={styles.infoContainer}>
-          <Image source={require('./assets/images/Ellipse_4.png')} style={styles.infoImage} />
-          <Image source={require('./assets/images/Ellipse_3.png')} style={styles.infoImage} />
+          <Image source={require('../assets/assets renang/images/Ellipse_4.png')} style={styles.infoImage} />
+          <Image source={require('../assets/assets renang/images/Ellipse_3.png')} style={styles.infoImage} />
           <Text style={styles.infoText}>15 min{'\n'}/60</Text>
         </View>
         <View style={styles.activityContainer}>
-          <Image source={require('./assets/images/solar_walking-bold.png')} style={styles.activityImage} />
+          <Image source={require('../assets/assets renang/images/solar_walking-bold.png')} style={styles.activityImage} />
           <Text style={styles.activityText}>0 min {'\n'}Walking </Text>
-          <Image source={require('./assets/images/solar_swimming-linear.png')} style={styles.activityImage} />
+          <Image source={require('../assets/assets renang/images/solar_swimming-linear.png')} style={styles.activityImage} />
           <Text style={styles.activityText}>40 min {'\n'}Swimming</Text>
         </View>
         <View style={styles.statsContainer}>
           <Text style={styles.statsTitle}>Distance</Text>
           <Text style={styles.statsTitleRight}>Duration</Text>
           <View style={styles.statsRow}>
-            <Image source={require('./assets/images/Line_5.png')} style={styles.statsImage} />
+            <Image source={require('../assets/assets renang/images/Line_5.png')} style={styles.statsImage} />
             <Text style={styles.statsText}>400 m{'\n'}Week 1 </Text>
-            <Image source={require('./assets/images/Line_5.png')} style={styles.statsImage} />
+            <Image source={require('../assets/assets renang/images/Line_5.png')} style={styles.statsImage} />
             <Text style={styles.statsText}>20 min {'\n'}Week 1</Text>
           </View>
           <View style={styles.statsRow}>
-            <Image source={require('./assets/images/Line_6.png')} style={styles.statsImage} />
+            <Image source={require('../assets/assets renang/images/Line_6.png')} style={styles.statsImage} />
             <Text style={styles.statsTextHighlighted}>300 m {'\n'}Week 2</Text>
-            <Image source={require('./assets/images/Line_6.png')} style={styles.statsImage} />
+            <Image source={require('../assets/assets renang/images/Line_6.png')} style={styles.statsImage} />
             <Text style={styles.statsTextHighlighted}>10 min{'\n'}Week 2</Text>
           </View>
         </View>
@@ -67,94 +67,105 @@ const GrafikrenangScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5', // Adjust as needed
-    padding: 10,
+    backgroundColor: '#F0F0F0',
   },
   header: {
+    width: '100%',
+    height: 100,
+    backgroundColor: '#070F2B',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#070F2B',
-    padding: 15,
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
   },
   headerImage: {
     width: 50,
     height: 50,
-    borderRadius: 8,
   },
   headerText: {
-    flex: 1,
-    color: 'white',
+    color: '#FFFFFF',
     fontSize: 20,
-    fontWeight: '600',
-    marginLeft: 15,
+    fontWeight: '500',
   },
-  headerIcon: {
+  headerImageRight: {
     width: 50,
     height: 50,
-    borderRadius: 8,
+  },
+  contentContainer: {
+    alignItems: 'center',
+    paddingTop: 35,
   },
   title: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 30,
+    fontFamily: 'Readex Pro',
   },
-  centeredContent: {
-    alignItems: 'center',
-  },
-  ellipse4: {
-    position: 'absolute',
-    top: 0,
-    left: 120,
-  },
-  ellipse3: {
-    position: 'absolute',
-    top: 0,
-    left: 136,
-  },
-  timerText: {
-    fontSize: 17,
-    textAlign: 'center',
-    marginVertical: 50,
-  },
-  iconsRow: {
+  infoContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 15,
+    alignItems: 'center',
+    marginTop: 15,
   },
-  icon: {
-    marginHorizontal: 20,
+  infoImage: {
+    width: 50,
+    height: 50,
+    marginHorizontal: 10,
   },
-  iconText: {
-    fontSize: 12,
+  infoText: {
+    fontSize: 17,
+    fontFamily: 'Poppins',
     textAlign: 'center',
+  },
+  activityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  activityImage: {
+    width: 50,
+    height: 50,
+    marginHorizontal: 10,
+  },
+  activityText: {
+    fontSize: 12,
+    fontFamily: 'Readex Pro',
+    textAlign: 'center',
+  },
+  statsContainer: {
+    marginTop: 270,
+    width: '100%',
+    paddingHorizontal: 50,
+  },
+  statsTitle: {
+    fontSize: 16,
+    fontWeight: '500',
+    fontFamily: 'Poppins',
+  },
+  statsTitleRight: {
+    fontSize: 16,
+    fontWeight: '500',
+    fontFamily: 'Readex Pro',
+    position: 'absolute',
+    right: 0,
   },
   statsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 50,
-    marginTop: 270,
-  },
-  statText: {
-    fontSize: 12,
-    fontWeight: '500',
-  },
-  statsDetailsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 50,
+    alignItems: 'center',
     marginTop: 10,
   },
-  line: {
-    width: '35%',
-    height: 2,
-    backgroundColor: '#000',
+  statsImage: {
+    width: 100,
+    height: 5,
+    marginHorizontal: 10,
   },
-  detailText: {
+  statsText: {
     fontSize: 12,
+    fontFamily: 'Poppins',
     textAlign: 'center',
   },
-  highlightedDetailText: {
+  statsTextHighlighted: {
+    fontSize: 12,
+    fontFamily: 'Poppins',
+    textAlign: 'center',
     color: '#0055B8',
   },
 });

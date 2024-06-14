@@ -47,14 +47,14 @@ const Signinpage = () => {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+      <TouchableOpacity style={styles.button} onPress={Signinpage}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
 
       <Text style={styles.loginWith}>Login with</Text>
 
       <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
-        <Image source={require('./assets/google.jpg')} style={styles.googleIcon} />
+        <Image source={require('../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
         <Text style={styles.googleButtonText}>Google</Text>
       </TouchableOpacity>
 
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 40,
   },
   backIcon: {
-    fontSize: 40,
+    fontSize: 30,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'black',
+    fontWeight: 'bold',
     marginLeft: 20,
   },
   inputContainer: {
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: '#717171',
     borderWidth: 1,
-    borderRadius: 18,
+    borderRadius: 16,
     paddingHorizontal: 10,
   },
   forgotPassword: {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#57F2F2',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 18,
+    borderRadius: 16,
   },
   buttonText: {
     color: '#FFF',

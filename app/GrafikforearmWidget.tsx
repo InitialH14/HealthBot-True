@@ -5,8 +5,8 @@ import { useFonts } from 'expo-font';
 
 const GrafikforearmWidget = () => {
   const [loaded] = useFonts({
-    Poppins: require('./assets/fonts/Poppins-Regular.ttf'),
-    'Readex Pro': require('./assets/fonts/ReadexPro-Regular.ttf'),
+    Poppins: require('../assets/assets forearm/fonts/Poppins-Regular.ttf'),
+    'Readex Pro': require('../assets/assets forearm/fonts/Poppins-Regular.ttf'),
   });
 
   if (!loaded) {
@@ -17,27 +17,27 @@ const GrafikforearmWidget = () => {
     <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
         <View style={styles.header}>
-          <Image style={styles.logo} source={require('./assets/images/Layer_1.png')} />
+          <Image style={styles.logo} source={require('../assets/assets forearm/images/Layer_1.png')} />
           <Text style={styles.headerText}>HEALTHBOT</Text>
-          <Image style={styles.profileImage} source={require('./assets/images/Frame_3.png')} />
+          <Image style={styles.profileImage} source={require('../assets/assets forearm/images/Frame_3.png')} />
         </View>
       </View>
       
       <Text style={styles.title}>Latihan Foream</Text>
       
       <View style={styles.circleContainer}>
-        <Image style={styles.circle1} source={require('./assets/images/Ellipse_4.png')} />
-        <Image style={styles.circle2} source={require('./assets/images/Ellipse_3.png')} />
+        <Image style={styles.circle1} source={require('../assets/assets forearm/images/Ellipse_4.png')} />
+        <Image style={styles.circle2} source={require('../assets/assets forearm/images/Ellipse_3.png')} />
         <Text style={styles.circleText}>10 min /60</Text>
       </View>
 
       <View style={styles.row}>
         <View style={styles.activityContainer}>
-          <Image style={styles.activityIcon} source={require('./assets/images/solar_walking-bold.png')} />
+          <Image style={styles.activityIcon} source={require('../assets/assets forearm/images/solar_walking-bold.png')} />
           <Text style={styles.activityText}>40 min {'\n'}Walking</Text>
         </View>
         <View style={styles.activityContainer}>
-          <Image style={styles.activityIcon} source={require('./assets/images/material-symbols-light_sports-handball.png')} />
+          <Image style={styles.activityIcon} source={require('../assets/assets forearm/images/material-symbols-light_sports-handball.png')} />
           <Text style={styles.activityText}>40 min {'\n'}Running</Text>
         </View>
       </View>
@@ -81,22 +81,22 @@ const GrafikforearmWidget = () => {
 
       <View style={styles.row}>
         <View style={styles.statContainer}>
-          <Image style={styles.statLine} source={require('./assets/images/Line_5.png')} />
+          <Image style={styles.statLine} source={require('../assets/assets forearm/images/Line_5.png')} />
           <Text style={styles.statText}>16 Set {'\n'}Week 1</Text>
         </View>
         <View style={styles.statContainer}>
-          <Image style={styles.statLine} source={require('./assets/images/Line_5.png')} />
+          <Image style={styles.statLine} source={require('../assets/assets forearm/images/Line_5.png')} />
           <Text style={styles.statText}>15 min {'\n'}Week 1</Text>
         </View>
       </View>
 
       <View style={styles.row}>
         <View style={styles.statContainer}>
-          <Image style={styles.statLine} source={require('./assets/images/Line_6.png')} />
+          <Image style={styles.statLine} source={require('../assets/assets forearm/images/Line_6.png')} />
           <Text style={styles.statTextHighlighted}>8 Set {'\n'}Week 2</Text>
         </View>
         <View style={styles.statContainer}>
-          <Image style={styles.statLine} source={require('./assets/images/Line_6.png')} />
+          <Image style={styles.statLine} source={require('../assets/assets forearm/images/Line_6.png')} />
           <Text style={styles.statTextHighlighted}>10 min {'\n'}Week 2</Text>
         </View>
       </View>
@@ -107,95 +107,122 @@ const GrafikforearmWidget = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5', // Adjust as needed
-    padding: 10,
+    backgroundColor: '#F5FCFF',
+  },
+  headerContainer: {
+    width: '100%',
+    height: 100,
+    backgroundColor: '#070F2B',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#070F2B',
-    padding: 15,
   },
-  headerImage: {
-    width: 50,
-    height: 50,
+  logo: {
+    width: 40,
+    height: 40,
     borderRadius: 8,
   },
   headerText: {
-    flex: 1,
-    color: 'white',
+    marginLeft: 20,
+    fontFamily: 'Poppins',
     fontSize: 20,
-    fontWeight: '600',
-    marginLeft: 15,
+    color: 'white',
+    fontWeight: '500',
   },
-  headerIcon: {
-    width: 50,
-    height: 50,
+  profileImage: {
+    width: 40,
+    height: 40,
     borderRadius: 8,
   },
   title: {
-    fontSize: 30,
+    marginTop: 35,
+    marginLeft: 15,
+    fontFamily: 'Readex Pro',
+    fontSize: 25,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 30,
   },
-  centeredContent: {
-    alignItems: 'center',
-  },
-  ellipse4: {
-    position: 'absolute',
-    top: 0,
-    left: 120,
-  },
-  ellipse3: {
-    position: 'absolute',
-    top: 0,
-    left: 136,
-  },
-  timerText: {
-    fontSize: 17,
-    textAlign: 'center',
-    marginVertical: 50,
-  },
-  iconsRow: {
+  circleContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 15,
+    alignItems: 'center',
+    marginTop: 15,
   },
-  icon: {
-    marginHorizontal: 20,
+  circle1: {
+    width: 60,
+    height: 60,
   },
-  iconText: {
-    fontSize: 12,
-    textAlign: 'center',
+  circle2: {
+    width: 60,
+    height: 60,
+    marginLeft: -30,
   },
-  statsRow: {
+  circleText: {
+    position: 'absolute',
+    fontFamily: 'Poppins',
+    fontSize: 17,
+  },
+  row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 50,
-    marginTop: 270,
-  },
-  statText: {
-    fontSize: 12,
-    fontWeight: '500',
-  },
-  statsDetailsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 10,
   },
-  line: {
-    width: '35%',
-    height: 2,
-    backgroundColor: '#000',
+  activityContainer: {
+    alignItems: 'center',
+    marginHorizontal: 20,
   },
-  detailText: {
+  activityIcon: {
+    width: 40,
+    height: 40,
+  },
+  activityText: {
+    fontFamily: 'Readex Pro',
     fontSize: 12,
     textAlign: 'center',
   },
-  highlightedDetailText: {
+  chartContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  distanceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 50,
+    marginTop: 55,
+  },
+  distanceText: {
+    fontFamily: 'Poppins',
+    fontWeight: '500',
+  },
+  durationText: {
+    fontFamily: 'Readex Pro',
+    fontWeight: '500',
+  },
+  statContainer: {
+    alignItems: 'center',
+    marginHorizontal: 40,
+  },
+  statLine: {
+    width: 100,
+    height: 2,
+  },
+  statText: {
+    fontFamily: 'Poppins',
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  statTextHighlighted: {
+    fontFamily: 'Poppins',
+    fontSize: 12,
+    textAlign: 'center',
     color: '#0055B8',
+    marginTop: 5,
   },
 });
 
