@@ -63,27 +63,54 @@ const HomePage: React.FC = () => {
             <Text style={styles.sectionTitle}>Untuk Mu</Text>
           </View>
 
-          <TouchableOpacity style={[styles.fullWidthCard, styles.card1]}>
+          <View style={styles.forYouLayout}>
+            <TouchableOpacity style={styles.card}>
+              <Image source={require('../../assets/images/running.png')} style={styles.iconMenu}/>
+              <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Olahraga</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.card}>
+              <Image source={require('../../assets/images/stopwatch.png')} style={styles.iconMenu}/>
+              <Text style={[styles.iconText, {textAlign:'center'}]}>Jadwal Olahraga</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.forYouLayout}>
+            <TouchableOpacity style={styles.card}>
+              <Image source={require('../../assets/images/diet.png')} style={styles.iconMenu}/>
+              <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Menu Diet</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.card}>
+              <Image source={require('../../assets/images/medicine.png')} style={styles.iconMenu}/>
+              <Text style={[styles.iconText, {textAlign:'center'}]}>Toko Obat</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.forYouLayout}>
+            <TouchableOpacity style={styles.card}>
+              <Image source={require('../../assets/images/statistics.png')} style={styles.iconMenu}/>
+              <Text style={[styles.iconText, {textAlign:'center'}]}>Grafik Perkembangan</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Cek Info Kesehatan</Text>
+          </View>
+          <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
             <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Rekomendasi Olahraga</Text>
+              <Text style={styles.cardTitle}>Ini Berita</Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
             <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Grafik Progres</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={[styles.fullWidthCard, styles.card1]}>
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Pengingat Olahraga</Text>
+              <Text style={styles.cardTitle}>Ini Berita</Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
             <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Rekomendasi Menu Diet</Text>
+              <Text style={styles.cardTitle}>Ini Berita</Text>
             </View>
           </TouchableOpacity>
 
@@ -135,11 +162,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  forYouLayout: {
+    paddingLeft: 35,
+    paddingRight: 35,
+    paddingBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
   card: {
     width: 120,
     height: 120,
     borderRadius: 10,
-    marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 15,
