@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,30 +7,32 @@ import {
   StyleSheet,
   Dimensions,
   DrawerLayoutAndroid,
+  Image
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-const HomePage = () => {
-  const [drawer, setDrawer] = useState('left');
+const HomePage: React.FC = () => {
+  const drawerRef = useRef<DrawerLayoutAndroid>(null);
 
   return (
     <DrawerLayoutAndroid
-      ref={(ref) => setDrawer('right')}
+      ref={drawerRef}
       drawerWidth={300}
       drawerPosition="right"
       renderNavigationView={() => <View style={styles.drawer}></View>}
     >
       <View style={styles.container}>
         <View style={styles.appBar}>
+          <Image source={require('../../assets/images/healthBot-logo.png')} width={50} height={30} style={styles.logo}/>
           <Text style={styles.appBarTitle}>HealthBot</Text>
         </View>
         <ScrollView style={styles.scrollView}>
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Tanyakan Keluhanmu</Text>
           </View>
-          <ScrollView horizontal style={styles.horizontalScrollView}>
-            <TouchableOpacity style={[styles.card, styles.card1]}>
+          <View style={styles.horizontalScrollView}>
+          <TouchableOpacity style={[styles.card, styles.card1]}>
               <View style={styles.cardContent}>
                 <Text style={styles.cardTitle}>Dokter Bot</Text>
                 <Text style={styles.cardSubtitle}>ChatBot pintar</Text>
@@ -44,7 +46,7 @@ const HomePage = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-          </ScrollView>
+          </View>
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Untuk Mu</Text>
           </View>
@@ -82,30 +84,34 @@ const styles = StyleSheet.create({
   appBar: {
     backgroundColor: '#070F2B',
     padding: 20,
+    paddingTop: 50,
     elevation: 2,
+    flexDirection: 'row'
   },
   appBarTitle: {
     color: 'white',
     fontSize: 22,
-    fontFamily: 'Outfit',
+  },
+  logo: {
+    marginRight: 20
   },
   scrollView: {
     flex: 1,
   },
   section: {
     padding: 35,
-    paddingBottom: 0,
+    paddingBottom: 20,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    fontFamily: 'Poppins',
     color: 'black',
   },
   horizontalScrollView: {
     paddingLeft: 35,
     paddingRight: 35,
     paddingBottom: 20,
+    flexDirection: 'row'
   },
   card: {
     width: 225,
@@ -131,11 +137,9 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'Poppins',
     color: 'white',
   },
   cardSubtitle: {
-    fontFamily: 'Readex Pro',
     color: 'white',
   },
   fullWidthCard: {
