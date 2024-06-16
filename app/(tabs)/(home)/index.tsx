@@ -114,7 +114,7 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
 
           <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
             <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Ini Berita</Text>
+              <Text style={styles.cardTitle}>Ini Rekomendasi Menu Diet</Text>
             </View>
           </TouchableOpacity>
 
