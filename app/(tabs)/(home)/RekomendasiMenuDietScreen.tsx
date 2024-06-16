@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 
-const RekomendasiMenuDietScreen = ({ navigation }) => {
-  const [model, setModel] = useState(null);
+interface RekomendasiMenuDietScreenProps {
+  navigation: any;
+}
+
+const RekomendasiMenuDietScreen: React.FC<RekomendasiMenuDietScreenProps> = ({ navigation }) => {
+  const [model, setModel] = useState<{ dispose: () => void } | null>(null);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -19,10 +23,10 @@ const RekomendasiMenuDietScreen = ({ navigation }) => {
           model.dispose();
         }
       };
-    }, [])
+    }, [model])
   );
 
-  const createModel = async () => {
+  const createModel = async (): Promise<{ dispose: () => void }> => {
     // Assume this function fetches and returns a model.
     return { dispose: () => {} }; // Placeholder for actual model logic
   };

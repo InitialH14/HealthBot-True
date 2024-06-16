@@ -9,10 +9,11 @@ import {
   DrawerLayoutAndroid,
   Image
 } from 'react-native';
+import { Link } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
   const drawerRef = useRef<DrawerLayoutAndroid>(null);
 
   return (
@@ -24,7 +25,7 @@ const HomePage: React.FC = () => {
     >
       <View style={styles.container}>
         <View style={styles.appBar}>
-          <Image source={require('../../assets/images/healthBot-logo.png')} style={styles.logo}/>
+          <Image source={require('../../../assets/images/healthBot-logo.png')} style={styles.logo}/>
           <Text style={styles.appBarTitle}>HealthBot</Text>
         </View>
 
@@ -34,12 +35,12 @@ const HomePage: React.FC = () => {
           </View>
 
           <View style={styles.horizontalScrollView}>
-            <TouchableOpacity style={[styles.card]}>
-                <Image source={require('../../assets/images/chatbot.png')} style={styles.iconMenu}/>
+            <TouchableOpacity style={[styles.card]} >
+                <Image source={require('../../../assets/images/chatbot.png')} style={styles.iconMenu}/>
                 <Text style={styles.iconText}>HealthBot</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.card]}>
-              <Image source={require('../../assets/images/doctor.png')} style={styles.iconMenu}/>
+              <Image source={require('../../../assets/images/doctor.png')} style={styles.iconMenu}/>
               <Text style={styles.iconText}>Chat Dokter</Text>
             </TouchableOpacity>
           </View>
@@ -50,11 +51,11 @@ const HomePage: React.FC = () => {
 
           <View style={styles.infoToken}>
             <View style={styles.walletInfo}>
-              <Image source={require('../../assets/images/wallet.png')} style={styles.walletIcon}/>
+              <Image source={require('../../../assets/images/wallet.png')} style={styles.walletIcon}/>
               <Text style={styles.PriceText}>Rp 0</Text>
             </View>
             <TouchableOpacity style={styles.topUpPress}>
-              <Image source={require('../../assets/images/plus.png')} style={styles.topupIcon}/>
+              <Image source={require('../../../assets/images/plus.png')} style={styles.topupIcon}/>
               <Text style={styles.topupText}>Top Up</Text>
             </TouchableOpacity>
           </View>
@@ -65,30 +66,33 @@ const HomePage: React.FC = () => {
 
           <View style={styles.forYouLayout}>
             <TouchableOpacity style={styles.card}>
-              <Image source={require('../../assets/images/running.png')} style={styles.iconMenu}/>
+              <Image source={require('../../../assets/images/running.png')} style={styles.iconMenu}/>
               <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Olahraga</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.card}>
-              <Image source={require('../../assets/images/stopwatch.png')} style={styles.iconMenu}/>
+              <Image source={require('../../../assets/images/stopwatch.png')} style={styles.iconMenu}/>
               <Text style={[styles.iconText, {textAlign:'center'}]}>Jadwal Olahraga</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.forYouLayout}>
+            <Link href={"/RekomendasiMenuDietScreen"}>
+              <View style={styles.card}>
+                <Image source={require('../../../assets/images/diet.png')} style={styles.iconMenu}/>
+                <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Menu Diet</Text>
+              </View>
+            </Link>
+            
             <TouchableOpacity style={styles.card}>
-              <Image source={require('../../assets/images/diet.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Menu Diet</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../assets/images/medicine.png')} style={styles.iconMenu}/>
+              <Image source={require('../../../assets/images/medicine.png')} style={styles.iconMenu}/>
               <Text style={[styles.iconText, {textAlign:'center'}]}>Toko Obat</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.forYouLayout}>
             <TouchableOpacity style={styles.card}>
-              <Image source={require('../../assets/images/statistics.png')} style={styles.iconMenu}/>
+              <Image source={require('../../../assets/images/statistics.png')} style={styles.iconMenu}/>
               <Text style={[styles.iconText, {textAlign:'center'}]}>Grafik Perkembangan</Text>
             </TouchableOpacity>
           </View>

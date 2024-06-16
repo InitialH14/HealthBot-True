@@ -54,7 +54,7 @@ const Signinpage = () => {
       <Text style={styles.loginWith}>Login with</Text>
 
       <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
-        <Image source={require('../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
+        <Image source={require('../../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
         <Text style={styles.googleButtonText}>Google</Text>
       </TouchableOpacity>
 
