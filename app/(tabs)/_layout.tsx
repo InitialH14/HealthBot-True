@@ -33,15 +33,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="quesionerPage"
-        options={{
-          title: 'quesioner',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'person-outline' : 'person'} color={'black'} />
-          ),
-        }}
-      />
     </Tabs>
   );
 }
