@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   appBar: {
     backgroundColor: '#070F2B',
     padding: 20,
-    paddingTop: 50,
+    paddingTop: 40,
     elevation: 2,
     flexDirection: 'row'
   },
