@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,11 +10,42 @@ import {
   Image
 } from 'react-native';
 import { Link } from 'expo-router';
+import axios from 'axios';
+import config from '../../../config';
 
 const { width } = Dimensions.get('window');
+interface Article {
+  source: {
+    id: string | null;
+    name: string;
+  };
+  author: string | null;
+  title: string;
+  description: string | null;
+  url: string;
+  urlToImage: string | null;
+  publishedAt: string;
+  content: string | null;
+}
 
 const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
   const drawerRef = useRef<DrawerLayoutAndroid>(null);
+  const [news, setNews] = useState<Article[]>([]);
+  const apiUrl = config.newsApiURL
+
+  const getNews = async () => {
+    try {
+      const res = await axios.get(apiUrl);
+      const data = res.data.articles.slice(0,5);
+      setNews(data);
+    } catch(error){
+      console.error("gagal mendapatkan info: ", error)
+    }
+  }
+
+  useEffect(() => {
+    getNews();
+  }, [])
 
   return (
     <DrawerLayoutAndroid
@@ -35,14 +66,19 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
           </View>
 
           <View style={styles.horizontalScrollView}>
-            <TouchableOpacity style={[styles.card]} >
-                <Image source={require('../../../assets/images/chatbot.png')} style={styles.iconMenu}/>
-                <Text style={styles.iconText}>HealthBot</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.card]}>
-              <Image source={require('../../../assets/images/doctor.png')} style={styles.iconMenu}/>
-              <Text style={styles.iconText}>Chat Dokter</Text>
-            </TouchableOpacity>
+            <Link href={"/../chatBot"} asChild>
+              <TouchableOpacity style={[styles.card]} >
+                  <Image source={require('../../../assets/images/chatbot.png')} style={styles.iconMenu}/>
+                  <Text style={styles.iconText}>HealthBot</Text>
+              </TouchableOpacity>
+            </Link>
+            
+            <Link href={"/../chatDokter"} asChild>
+              <TouchableOpacity style={[styles.card]}>
+                <Image source={require('../../../assets/images/doctor.png')} style={[styles.iconMenu, {marginLeft: 12}]}/>
+                <Text style={styles.iconText}>Chat Dokter</Text>
+              </TouchableOpacity>
+            </Link>
           </View>
 
           <View style={styles.section}>
@@ -65,58 +101,62 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
           </View>
 
           <View style={styles.forYouLayout}>
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../../assets/images/running.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Olahraga</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../../assets/images/stopwatch.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Jadwal Olahraga</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.forYouLayout}>
-            <Link href={"/RekomendasiMenuDietScreen"}>
-              <View style={styles.card}>
-                <Image source={require('../../../assets/images/diet.png')} style={styles.iconMenu}/>
-                <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Menu Diet</Text>
-              </View>
+            <Link href={"/../RekomendasiOlahraga"} asChild>
+              <TouchableOpacity style={styles.card}>
+                <Image source={require('../../../assets/images/running.png')} style={styles.iconMenu}/>
+                <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Olahraga</Text>
+              </TouchableOpacity>
             </Link>
             
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../../assets/images/medicine.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Toko Obat</Text>
-            </TouchableOpacity>
+            <Link href={"/../JadwalOlahraga"} asChild>
+              <TouchableOpacity style={styles.card}>
+                <Image source={require('../../../assets/images/stopwatch.png')} style={styles.iconMenu}/>
+                <Text style={[styles.iconText, {textAlign:'center'}]}>Jadwal Olahraga</Text>
+              </TouchableOpacity>
+            </Link>
+            
           </View>
 
           <View style={styles.forYouLayout}>
+            <Link href={"/../RekomendasiMenuDietScreen"} asChild>
+              <TouchableOpacity style={styles.card}>
+                <Image source={require('../../../assets/images/diet.png')} style={styles.iconMenu}/>
+                <Text style={[styles.iconText, {textAlign:'center'}]}>Rekomendasi Menu Diet</Text>
+              </TouchableOpacity>
+            </Link>
+            
+            <Link href={"/../TokoObat"} asChild>
+              <TouchableOpacity style={styles.card}>
+                <Image source={require('../../../assets/images/medicine.png')} style={styles.iconMenu}/>
+                <Text style={[styles.iconText, {textAlign:'center'}]}>Toko Obat</Text>
+              </TouchableOpacity>
+            </Link>
+          </View>
+
+          {/* <View style={styles.forYouLayout}>
             <TouchableOpacity style={styles.card}>
               <Image source={require('../../../assets/images/statistics.png')} style={styles.iconMenu}/>
               <Text style={[styles.iconText, {textAlign:'center'}]}>Grafik Perkembangan</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
 
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Cek Info Kesehatan</Text>
           </View>
-          <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Ini Berita</Text>
-            </View>
-          </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Ini Grafik Pemantauan Kesehatan</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={[styles.fullWidthCard, styles.card2]}>
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Ini Rekomendasi Menu Diet</Text>
-            </View>
-          </TouchableOpacity>
+          {
+            news.map((item, index) => <Link href={item.url} key={index} asChild style={[styles.fullWidthCard]}>
+              <TouchableOpacity>
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>{item.title ? item.title : "No description available."}</Text>
+                  <View style={styles.infoNews}>
+                    <Text style={styles.textInfoNews}>{item.source.name}</Text>
+                    <Text style={styles.textInfoNews}>{item.publishedAt.split('T')[0]}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            </Link>)
+          }
 
         </ScrollView>
       </View>
@@ -159,12 +199,13 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   horizontalScrollView: {
+    width: '100%',
     paddingLeft: 35,
     paddingRight: 35,
     paddingBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'space-evenly'
   },
   forYouLayout: {
     paddingLeft: 35,
@@ -202,18 +243,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   cardTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
+    fontSize: 14,
+    fontWeight: '600',
+    color: 'black',
   },
   cardSubtitle: {
     color: 'white',
   },
   fullWidthCard: {
-    width: width * 0.808,
+    width: width * 0.9,
     height: 100,
     borderRadius: 14,
-    marginLeft: 35,
+    marginLeft: 18,
     marginBottom: 10,
     justifyContent: 'center',
     padding: 20,
@@ -261,6 +302,15 @@ const styles = StyleSheet.create({
     fontSize: 10, 
     fontWeight: 'bold',
     marginTop: 5
+  },
+  infoNews: {
+    flexDirection: 'row', 
+    width: '100%', 
+    justifyContent: 'space-between',
+    marginTop: 18
+  },
+  textInfoNews: {
+    fontSize: 12
   }
 
 });

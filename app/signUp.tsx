@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 
-const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
+const Signuppage: React.FC<{navigation:any}> = ({navigation}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -17,7 +17,7 @@ const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Log In</Text>
+        <Text style={styles.title}>Selamat Datang!</Text>
       </View>
 
       <View style={styles.inputContainer}>
@@ -32,6 +32,16 @@ const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
+          placeholder="Email"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
           placeholder="Password"
           secureTextEntry
           value={password}
@@ -39,30 +49,31 @@ const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
         />
       </View>
 
-      <TouchableOpacity onPress={() => console.log('Forgot Password pressed')}>
-        <Text style={styles.forgotPassword}>Forgot password?</Text>
-      </TouchableOpacity>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Konfirmasi Password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+      </View>
 
+      <View style={styles.buttonContainer}>
         <Link href={"(tabs)/(home)"} asChild>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-            <Text style={styles.buttonText}>Sign In</Text>
+            <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </Link>
+      </View>
 
-      {/* <Text style={styles.loginWith}>Login with</Text>
+      <Text style={styles.signUpPrompt}>Sudah punya akun?</Text>
 
-      <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
-        <Image source={require('../../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
-        <Text style={styles.googleButtonText}>Google</Text>
-      </TouchableOpacity> */}
-
-      <Text style={styles.signUpPrompt}>Don't have an account?</Text>
-      
-      <Link href={"signUp"} asChild>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
-          <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
-        </TouchableOpacity>
-      </Link>
+      <View style={[styles.buttonContainer, {marginTop: -20}]}>
+          <TouchableOpacity style={styles.button} onPress={() => router.back()}>
+            <Text style={[styles.buttonText, styles.signUpText]}>Sign In</Text>
+          </TouchableOpacity>
+      </View>
       
     </View>
   );
@@ -72,8 +83,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-    padding: 20,
-    paddingHorizontal: 30
+    padding: 30,
   },
   header: {
     flexDirection: 'row',
@@ -106,7 +116,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   button: {
-    marginTop: 30,
+    marginTop: 50,
     height: 50,
     backgroundColor: '#57F2F2',
     justifyContent: 'center',
@@ -140,13 +150,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   signUpPrompt: {
-    marginTop: 50,
+    marginTop: 30,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 14,
   },
   signUpText: {
     color: '#000',
   },
+  buttonContainer: {
+    paddingHorizontal: 60
+  }
 });
 
-export default Signinpage;
+export default Signuppage;
