@@ -3,12 +3,13 @@ import { ScrollView, View, Text, TextInput, TouchableOpacity, StyleSheet, Keyboa
 import Icon from 'react-native-vector-icons/Ionicons';
 import { router,Link } from 'expo-router';
 import axios from 'axios';
+import config from "../config";
 
 const ChatBotWidget = () => {
   const [textInput, setTextInput] = useState('');
   const [data, setData] = useState([{type: 'assistant', 'text': "Selamat datang! Coba ceritakan apa keluhan mu"}]);
   const textInputRef = useRef(null);
-  const apiKey = "sk-proj-WMZoQwoS2smZ9tqGcsa3T3BlbkFJKXDhKoWT4xPVoQ0BnvsT";
+  const apiKey = config.GPT_KEY;
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
   const handleSend = async () => {

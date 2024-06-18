@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { Link } from 'expo-router';
 import axios from 'axios';
+import config from '../../../config';
 
 const { width } = Dimensions.get('window');
 interface Article {
@@ -30,7 +31,7 @@ interface Article {
 const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
   const drawerRef = useRef<DrawerLayoutAndroid>(null);
   const [news, setNews] = useState<Article[]>([]);
-  const apiUrl = `https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=022447489dce49a88615a0f29890d98d`
+  const apiUrl = config.newsApiURL
 
   const getNews = async () => {
     try {
