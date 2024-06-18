@@ -43,18 +43,11 @@ const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </TouchableOpacity>
 
-        <Link href={"(tabs)/(home)"} asChild>
+        <Link href={"biodata"} asChild>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
         </Link>
-
-      {/* <Text style={styles.loginWith}>Login with</Text>
-
-      <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
-        <Image source={require('../../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
-        <Text style={styles.googleButtonText}>Google</Text>
-      </TouchableOpacity> */}
 
       <Text style={styles.signUpPrompt}>Don't have an account?</Text>
       

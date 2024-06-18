@@ -3,8 +3,13 @@ import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'reac
 import { Link } from 'expo-router';
 
 const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [namaLengkap, setnamaLengkap] = useState<string>('');
+  const [usia, setUsia] = useState<string>('');
+  const [pekerjaan, setPekerjaan] = useState<string>('');
+  const [jenisKelamin, setjenisKelamin] = useState<string>('');
+  const [tanggalLahir, settanggalLahir] = useState<string>('');
+  const [nomorHandphone, setnomorHandphone] = useState<string>('');
+  
 
   const handleSignIn = () => {
     console.log('Sign In button pressed');
@@ -17,52 +22,72 @@ const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Log In</Text>
+        <Text style={styles.title}>Harap Mengisi Data Diri Anda</Text>
       </View>
 
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
-          value={username}
-          onChangeText={setUsername}
+          placeholder="Nama Lengkap"
+          value={namaLengkap}
+          onChangeText={setnamaLengkap}
         />
       </View>
 
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Password"
+          placeholder="Usia"
           secureTextEntry
-          value={password}
-          onChangeText={setPassword}
+          value={usia}
+          onChangeText={setUsia}
         />
       </View>
 
-      <TouchableOpacity onPress={() => console.log('Forgot Password pressed')}>
-        <Text style={styles.forgotPassword}>Forgot password?</Text>
-      </TouchableOpacity>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Pekerjaan"
+          value={pekerjaan}
+          onChangeText={setPekerjaan}
+        />
+      </View>
 
-        <Link href={"(tabs)/(home)"} asChild>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Jenis Kelamin"
+          value={jenisKelamin}
+          onChangeText={setjenisKelamin}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Tanggal Lahir"
+          value={tanggalLahir}
+          onChangeText={settanggalLahir}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Nomor Handphone"
+          value={nomorHandphone}
+          onChangeText={setnomorHandphone}
+        />
+      </View>
+
+        <Link href={"biodataPage"} asChild>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
         </Link>
 
-      {/* <Text style={styles.loginWith}>Login with</Text>
-
-      <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
-        <Image source={require('../../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
-        <Text style={styles.googleButtonText}>Google</Text>
-      </TouchableOpacity> */}
-
-      <Text style={styles.signUpPrompt}>Don't have an account?</Text>
       
-      <Link href={"signUp"} asChild>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
-          <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
-        </TouchableOpacity>
-      </Link>
+      
       
     </View>
   );
