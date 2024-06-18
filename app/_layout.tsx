@@ -30,6 +30,10 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="quesioner" options={{ headerShown: false }} />
+        <Stack.Screen name="biodataPage" options={{ headerShown: false }} />
+        <Stack.Screen name="Signinpage" options={{ headerShown: false }} />
+
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
