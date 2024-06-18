@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Link } from 'expo-router';
 
-const Signinpage = () => {
-  const navigation = useNavigation();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleSignIn = () => {
     console.log('Sign In button pressed');
@@ -18,9 +17,6 @@ const Signinpage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={styles.backIcon}>◀︎</Text>
-        </TouchableOpacity>
         <Text style={styles.title}>Log In</Text>
       </View>
 
@@ -47,22 +43,27 @@ const Signinpage = () => {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={Signinpage}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
+        <Link href={"(tabs)/(home)"} asChild>
+          <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+            <Text style={styles.buttonText}>Sign In</Text>
+          </TouchableOpacity>
+        </Link>
 
-      <Text style={styles.loginWith}>Login with</Text>
+      {/* <Text style={styles.loginWith}>Login with</Text>
 
       <TouchableOpacity style={[styles.button, styles.googleButton]} onPress={handleGoogleSignIn}>
         <Image source={require('../../assets/assets sign in/images/google.jpg')} style={styles.googleIcon} />
         <Text style={styles.googleButtonText}>Google</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <Text style={styles.signUpPrompt}>Don't have an account?</Text>
-
-      <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
-        <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
-      </TouchableOpacity>
+      
+      <Link href={"signUp"} asChild>
+        <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
+          <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
+        </TouchableOpacity>
+      </Link>
+      
     </View>
   );
 };
@@ -72,11 +73,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5F5F5',
     padding: 20,
+    paddingHorizontal: 30
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 80,
+    marginBottom: 20,
   },
   backIcon: {
     fontSize: 30,
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginLeft: 20,
+    marginLeft: 5,
   },
   inputContainer: {
     marginTop: 20,
