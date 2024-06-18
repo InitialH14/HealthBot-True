@@ -73,7 +73,7 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
               </TouchableOpacity>
             </Link>
             
-            <Link href={"/../chatDokter"} asChild>
+            <Link href={"/../listDokter"} asChild>
               <TouchableOpacity style={[styles.card]}>
                 <Image source={require('../../../assets/images/doctor.png')} style={[styles.iconMenu, {marginLeft: 12}]}/>
                 <Text style={styles.iconText}>Chat Dokter</Text>

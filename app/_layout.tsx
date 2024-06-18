@@ -41,7 +41,7 @@ export default function RootLayout() {
         <Stack.Screen name="JadwalOlahraga" options={{ headerShown: false }}/>
         <Stack.Screen name="TokoObat" options={{ headerShown: false }}/>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        
+        <Stack.Screen name="listDokter" options={{ headerShown: false }} />
 
 
         <Stack.Screen name="+not-found" />

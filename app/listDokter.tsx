@@ -1,28 +1,34 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-
+import { StyleSheet, View, Text,Image } from "react-native";
+import { Padding, FontFamily, FontSize, Color, Border } from "./GlobalStyles";
 
 const ListDokter = () => {
   return (
     <View style={styles.listdokter}>
-      <View style={[styles.rectangleParent, styles.groupChildLayout1]}>
-        <View style={[styles.groupChild, styles.groupChildLayout1]} />
+      <View style={[styles.rectangleParent, styles.groupChildLayout]}>
+        <View style={[styles.groupChild, styles.groupChildLayout]} />
         <View style={styles.groupItem} />
       </View>
       <View style={styles.groupPosition}>
         <View style={[styles.groupInner, styles.groupPosition]} />
         <View style={[styles.component1Wrapper, styles.wrapperSpaceBlock]}>
           <View style={[styles.component1, styles.component1FlexBox]}>
+            <Image
+              style={styles.layer1Icon}
             
-            <Text style={[styles.healthbot, styles.drramaTypo]}>HEALTHBOT</Text>
+              
+            />
+            <Text style={[styles.healthbot, styles.healthbotFlexBox]}>
+              HEALTHBOT
+            </Text>
           </View>
         </View>
         <View style={[styles.groupWrapper, styles.component1FlexBox]}>
-          {/* <Image
-            style={[styles.groupIcon, styles.iconLayout]}
+          <Image
+            style={[styles.groupIcon, styles.iconLayout1]}
             
-            source={require("../assets/group.png")}
-          /> */}
+          
+          />
         </View>
       </View>
       <Text style={[styles.layananPelanggan, styles.parentPosition]}>
@@ -32,22 +38,31 @@ const ListDokter = () => {
         All RIghts Reserved
       </Text>
       <View style={[styles.parent, styles.parentPosition]}>
-        <Text style={[styles.text, styles.textTypo]}>021-777-9782</Text>
-        
+        <Text style={[styles.text, styles.textTypo1]}>021-777-9782</Text>
+        <Image
+          style={styles.vectorIcon}
+          
+          
+        />
       </View>
       <View style={[styles.healthbotgmailcomParent, styles.parentPosition]}>
-        <Text style={[styles.healthbotgmailcom, styles.textTypo]}>
+        <Text style={[styles.healthbotgmailcom, styles.textTypo1]}>
           HealthBot@gmail.com
         </Text>
+        <Image
+          style={[styles.vectorIcon1, styles.vectorIconPosition]}
+          
+          
+        />
       </View>
       <View
         style={[styles.jalanApaajadehKelKejambonParent, styles.parentPosition]}
       >
-        <Text
-          style={[styles.jalanApaajadehKel, styles.textTypo]}
-        >{`Jalan apaajadeh Kel. Kejambon
-Jawa Tengah, Indonesia`}</Text>
         
+        <Image
+          style={[styles.vectorIcon2, styles.vectorIconPosition]}
+          
+        />
       </View>
       <Text style={[styles.filterBerdasarkan, styles.dokterFlexBox]}>
         Filter Berdasarkan
@@ -60,12 +75,14 @@ Jawa Tengah, Indonesia`}</Text>
         source={require("../assets/images/search_1.png")}
       />
       <Image
-        style={[styles.angleLeft1Icon, styles.iconLayout]}
-        source={require("../assets/images/angle-left-1.png")}
+        style={[styles.angleLeft1Icon, styles.iconLayout1]}
+        
+        source={require("../assets/images/angleleft-1.png")}
       />
       <View style={[styles.listdokterChild, styles.listdokterLayout]} />
       <Image
         style={[styles.caretDown1Icon, styles.caretIconPosition]}
+        
         source={require("../assets/images/caretdown-1.png")}
       />
       <Text style={[styles.jenisKelamin, styles.caretIconPosition]}>
@@ -74,147 +91,157 @@ Jawa Tengah, Indonesia`}</Text>
       <View style={[styles.listdokterItem, styles.listdokterLayout]} />
       <Image
         style={[styles.caretDown2Icon, styles.caretIconPosition]}
+        
         source={require("../assets/images/caretdown-1.png")}
       />
       <Text style={[styles.harga, styles.caretIconPosition]}>Harga</Text>
-      <View style={[styles.rectangleContainer, styles.rectangleParentLayout]}>
-        <View style={[styles.rectangleView, styles.otongIconLayout]} />
-        <Text style={[styles.drramaDaniPutra, styles.dokterFlexBox]}>
-          Dr.Rama Dani Putra
-        </Text>
-        <Text style={[styles.dokterUmum, styles.dokterFlexBox]}>
-          Dokter Umum
-        </Text>
-        <View style={[styles.groupChild1, styles.groupChildLayout]} />
-        <Image
-          style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/images/shoppingbag-1.png")}
-        />
-        <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
-        <View style={[styles.groupChild2, styles.groupChildLayout]} />
-        <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
-        <Image
-          style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/images/thumbsup-1.png")}
-        />
-        <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
-        <View style={[styles.groupChild3, styles.childLayout]} />
-        <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
-        <Image
-          style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
-          source={require("../assets/images/otongremovebgpreview-1.png")}
-        />
-      </View>
-      <View style={[styles.listdokterInner, styles.listdokterInnerPosition]} />
-      <Text style={[styles.drramaDaniPutra1, styles.listdokterInnerPosition]}>
+      <View style={[styles.listdokterInner, styles.childIconLayout]} />
+      <Text style={[styles.drramaDaniPutra, styles.listdokterInnerPosition]}>
+        Dr.Rama Dani Putra
+      </Text>
+      <Text style={[styles.dokterUmum, styles.dokterFlexBox]}>Dokter Umum</Text>
+      <View style={[styles.rectangleView, styles.rectangleViewLayout]} />
+      <Image
+        style={[styles.shoppingBag1Icon, styles.iconLayout]}
+        source={require("../assets/images/shoppingbag-1.png")}
+      />
+      <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
+      <View
+        style={[styles.listdokterChild1, styles.listdokterChildPosition2]}
+      />
+      <Text style={[styles.text1, styles.textTypo]}>97%</Text>
+      <Image
+        style={[styles.thumbsUp1Icon, styles.thumbsIconPosition]}
+        source={require("../assets/images/thumbsup-1.png")}
+      />
+      <Text style={[styles.rp30000, styles.chat2Typo]}>Rp30.000</Text>
+      <View style={[styles.listdokterChild2, styles.childLayout]} />
+      <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
+      <Image
+        style={[styles.otongRemovebgPreview1Icon, styles.childIconLayout]}
+
+        source={require("../assets/images/otongremovebgpreview-1.png")}
+      />
+      <View
+        style={[styles.listdokterChild3, styles.listdokterChild3Position]}
+      />
+      <Text style={[styles.drramaDaniPutra1, styles.listdokterChild3Position]}>
         Dr.Rama Dani Putra
       </Text>
       <Text style={[styles.dokterUmum1, styles.dokterFlexBox]}>
         Dokter Umum
       </Text>
-      <View style={[styles.listdokterChild1, styles.listdokterChildPosition]} />
+      <View style={[styles.listdokterChild4, styles.listdokterChildPosition]} />
       <Image
         style={[styles.shoppingBag1Icon1, styles.text2Position]}
         source={require("../assets/images/shoppingbag-1.png")}
       />
       <Text style={[styles.tahun1, styles.tahunTypo]}>8 Tahun</Text>
-      <View style={[styles.listdokterChild2, styles.listdokterChildPosition]} />
+      <View style={[styles.listdokterChild5, styles.listdokterChildPosition]} />
       <Text style={[styles.text2, styles.text2Position]}>97%</Text>
       <Image
-        style={[styles.thumbsUp1Icon1, styles.thumbsIconLayout]}
+        style={[styles.thumbsUp1Icon1, styles.thumbsIconPosition]}
+
         source={require("../assets/images/thumbsup-1.png")}
       />
-      <Text style={[styles.rp300001, styles.chatTypo]}>Rp30.000</Text>
-      <View style={[styles.listdokterChild3, styles.childLayout]} />
+      <Text style={[styles.rp300001, styles.chat2Typo]}>Rp30.000</Text>
+      <View style={[styles.listdokterChild6, styles.childLayout]} />
       <Text style={[styles.chat1, styles.chatTypo]}>Chat</Text>
       <Image
-        style={[
-          styles.otongRemovebgPreview1Icon1,
-          styles.listdokterInnerPosition,
-        ]}
+        style={[styles.otongRemovebgPreview1Icon1, styles.childIconLayout]}
+
         source={require("../assets/images/otongremovebgpreview-1.png")}
       />
-      <View style={[styles.groupView, styles.rectangleParentLayout]}>
-        <View style={[styles.rectangleView, styles.otongIconLayout]} />
-        <Text style={[styles.drramaDaniPutra, styles.dokterFlexBox]}>
+      <View style={[styles.rectangleContainer, styles.rectangleLayout]}>
+        <View style={[styles.groupChild1, styles.childIconLayout]} />
+        <Text style={[styles.drramaDaniPutra2, styles.dokterFlexBox]}>
           Dr.Rama Dani Putra
         </Text>
-        <Text style={[styles.dokterUmum, styles.dokterFlexBox]}>
+        <Text style={[styles.dokterUmum2, styles.dokterFlexBox]}>
           Dokter Umum
         </Text>
-        <View style={[styles.groupChild1, styles.groupChildLayout]} />
+        <View style={[styles.groupChild2, styles.groupChildPosition]} />
         <Image
-          style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
+          style={[styles.shoppingBag1Icon2, styles.text3Position]}
+
           source={require("../assets/images/shoppingbag-1.png")}
         />
-        <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
-        <View style={[styles.groupChild2, styles.groupChildLayout]} />
-        <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
+        <Text style={[styles.tahun2, styles.tahunTypo]}>8 Tahun</Text>
+        <View style={[styles.groupChild3, styles.groupChildPosition]} />
+        <Text style={[styles.text3, styles.text3Position]}>97%</Text>
         <Image
-          style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
+          style={[styles.thumbsUp1Icon2, styles.iconLayout]}
+
           source={require("../assets/images/thumbsup-1.png")}
         />
-        <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
-        <View style={[styles.groupChild3, styles.childLayout]} />
-        <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
+        <Text style={[styles.rp300002, styles.chat2Typo]}>Rp30.000</Text>
+        <View style={[styles.groupChild4, styles.childLayout]} />
+        <Text style={[styles.chat2, styles.chat2Typo]}>Chat</Text>
         <Image
-          style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
+          style={[styles.otongRemovebgPreview1Icon2, styles.childIconLayout]}
+
           source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
-      <View style={[styles.rectangleParent1, styles.rectangleParentLayout]}>
-        <View style={[styles.rectangleView, styles.otongIconLayout]} />
-        <Text style={[styles.drramaDaniPutra, styles.dokterFlexBox]}>
+      <View style={[styles.groupView, styles.rectangleLayout]}>
+        <View style={[styles.groupChild1, styles.childIconLayout]} />
+        <Text style={[styles.drramaDaniPutra2, styles.dokterFlexBox]}>
           Dr.Rama Dani Putra
         </Text>
-        <Text style={[styles.dokterUmum, styles.dokterFlexBox]}>
+        <Text style={[styles.dokterUmum2, styles.dokterFlexBox]}>
           Dokter Umum
         </Text>
-        <View style={[styles.groupChild1, styles.groupChildLayout]} />
+        <View style={[styles.groupChild2, styles.groupChildPosition]} />
         <Image
-          style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
+          style={[styles.shoppingBag1Icon2, styles.text3Position]}
+ 
           source={require("../assets/images/shoppingbag-1.png")}
         />
-        <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
-        <View style={[styles.groupChild2, styles.groupChildLayout]} />
-        <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
+        <Text style={[styles.tahun2, styles.tahunTypo]}>8 Tahun</Text>
+        <View style={[styles.groupChild3, styles.groupChildPosition]} />
+        <Text style={[styles.text3, styles.text3Position]}>97%</Text>
         <Image
-          style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
+          style={[styles.thumbsUp1Icon2, styles.iconLayout]}
+   
           source={require("../assets/images/thumbsup-1.png")}
         />
-        <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
-        <View style={[styles.groupChild3, styles.childLayout]} />
-        <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
+        <Text style={[styles.rp300002, styles.chat2Typo]}>Rp30.000</Text>
+        <View style={[styles.groupChild4, styles.childLayout]} />
+        <Text style={[styles.chat2, styles.chat2Typo]}>Chat</Text>
         <Image
-          style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
+          style={[styles.otongRemovebgPreview1Icon2, styles.childIconLayout]}
+    
           source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
-      <View style={[styles.rectangleParent2, styles.rectangleParentLayout]}>
-        <View style={[styles.rectangleView, styles.otongIconLayout]} />
+      <View style={[styles.rectangleParent1, styles.rectangleLayout]}>
+        <View style={[styles.groupChild1, styles.childIconLayout]} />
         <Text style={[styles.drhadidRamadhan, styles.dokterFlexBox]}>
           Dr.Hadid Ramadhan
         </Text>
-        <Text style={[styles.dokterUmum, styles.dokterFlexBox]}>
+        <Text style={[styles.dokterUmum2, styles.dokterFlexBox]}>
           Dokter Umum
         </Text>
-        <View style={[styles.groupChild1, styles.groupChildLayout]} />
+        <View style={[styles.groupChild2, styles.groupChildPosition]} />
         <Image
-          style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
+          style={[styles.shoppingBag1Icon2, styles.text3Position]}
+      
           source={require("../assets/images/shoppingbag-1.png")}
         />
-        <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
-        <View style={[styles.groupChild2, styles.groupChildLayout]} />
-        <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
+        <Text style={[styles.tahun2, styles.tahunTypo]}>8 Tahun</Text>
+        <View style={[styles.groupChild3, styles.groupChildPosition]} />
+        <Text style={[styles.text3, styles.text3Position]}>97%</Text>
         <Image
-          style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
+          style={[styles.thumbsUp1Icon2, styles.iconLayout]}
+   
           source={require("../assets/images/thumbsup-1.png")}
         />
-        <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
-        <View style={[styles.groupChild3, styles.childLayout]} />
-        <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
+        <Text style={[styles.rp300002, styles.chat2Typo]}>Rp30.000</Text>
+        <View style={[styles.groupChild4, styles.childLayout]} />
+        <Text style={[styles.chat2, styles.chat2Typo]}>Chat</Text>
         <Image
-          style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
+          style={[styles.otongRemovebgPreview1Icon2, styles.childIconLayout]}
+          
           source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
@@ -223,7 +250,7 @@ Jawa Tengah, Indonesia`}</Text>
 };
 
 const styles = StyleSheet.create({
-  groupChildLayout1: {
+  groupChildLayout: {
     width: 361,
     position: "absolute",
   },
@@ -235,19 +262,19 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   wrapperSpaceBlock: {
-    paddingHorizontal: 10,
+    paddingHorizontal: Padding.p_mini,
     position: "absolute",
   },
   component1FlexBox: {
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
   },
-  drramaTypo: {
-    fontFamily: "poppinsBold",
-    fontWeight: "700",
+  healthbotFlexBox: {
+    display: "flex",
+    alignItems: "center",
   },
-  iconLayout: {
+  iconLayout1: {
     width: 17,
     height: 17,
   },
@@ -257,101 +284,150 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   dokterTypo1: {
-    fontFamily: "poppinsLight",
+    fontFamily: FontFamily.poppinsLight,
     fontWeight: "300",
-    fontSize: 12,
+    fontSize: FontSize.size_3xs,
     position: "absolute",
   },
-  textTypo: {
-    color: "White",
-    left: 35,
-    fontFamily: "poppinsMedium",
+  textTypo1: {
+    color: Color.colorWhite,
+    fontFamily: FontFamily.poppinsMedium,
     fontWeight: "500",
-    fontSize: 12,
+    fontSize: FontSize.size_3xs,
     textAlign: "left",
     position: "absolute",
   },
+  vectorIconPosition: {
+    left: "0%",
+    maxHeight: "100%",
+    maxWidth: "100%",
+    top: "0%",
+    position: "absolute",
+    overflow: "hidden",
+  },
   dokterFlexBox: {
     textAlign: "center",
-    color: "Black",
+    color: Color.colorBlack,
   },
   hargaTypo: {
-    fontFamily: "poppinsRegular",
+    fontFamily: FontFamily.poppinsRegular,
     textAlign: "center",
-    color: "Black",
+    color: Color.colorBlack,
   },
   listdokterLayout: {
     height: 22,
-    borderRadius: 9,
+    borderRadius: Border.br_9xs,
     top: 134,
-    backgroundColor: "Gainsboro",
+    backgroundColor: Color.colorGainsboro,
     position: "absolute",
   },
   caretIconPosition: {
     top: 137,
     position: "absolute",
   },
-  rectangleParentLayout: {
+  childIconLayout: {
     height: 85,
-    width: 309,
-    left: 24,
-    position: "absolute",
-  },
-  otongIconLayout: {
     width: 62,
-    height: 85,
   },
-  groupChildLayout: {
-    height: 19,
-    top: 34,
-    backgroundColor: "Gainsboro",
-    borderRadius: 9,
+  listdokterInnerPosition: {
+    top: 180,
     position: "absolute",
   },
-  thumbsIconLayout: {
+  rectangleViewLayout: {
+    height: 19,
+    top: 214,
+    backgroundColor: Color.colorGainsboro,
+    borderRadius: Border.br_9xs,
+    position: "absolute",
+  },
+  iconLayout: {
     height: 10,
     width: 10,
   },
   tahunTypo: {
-    fontSize: 10,
+    fontSize: FontSize.size_5xs,
     textAlign: "center",
-    color: "Black",
-    fontFamily: "poppinsLight",
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsLight,
     fontWeight: "300",
   },
-  chatTypo: {
-    fontFamily: "poppinsSemiBold",
-    fontWeight: "600",
-    fontSize: 8,
+  listdokterChildPosition2: {
+    left: 167,
+    width: 43,
+  },
+  textTypo: {
+    left: 189,
+    fontSize: FontSize.size_5xs,
     textAlign: "center",
-    color: "Black",
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsLight,
+    fontWeight: "300",
+  },
+  thumbsIconPosition: {
+    left: 171,
+    height: 10,
+    width: 10,
+    position: "absolute",
+  },
+  chat2Typo: {
+    fontFamily: FontFamily.poppinsSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_xs,
+    textAlign: "center",
+    color: Color.colorBlack,
     position: "absolute",
   },
   childLayout: {
     height: 23,
     width: 82,
-    backgroundColor: "Aqua",
-    borderRadius: 9,
+    backgroundColor: Color.colorAqua,
+    borderRadius: Border.br_9xs,
     position: "absolute",
   },
-  listdokterInnerPosition: {
+  chatTypo: {
+    left: 277,
+    fontFamily: FontFamily.poppinsSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_xs,
+    textAlign: "center",
+    color: Color.colorBlack,
+    position: "absolute",
+  },
+  listdokterChild3Position: {
     top: 502,
     position: "absolute",
   },
   listdokterChildPosition: {
     top: 536,
     height: 19,
-    backgroundColor: "Gainsboro",
-    borderRadius: 9,
+    backgroundColor: Color.colorGainsboro,
+    borderRadius: Border.br_9xs,
     position: "absolute",
   },
   text2Position: {
     top: 540,
     position: "absolute",
   },
+  rectangleLayout: {
+    width: 309,
+    height: 85,
+    left: 24,
+    position: "absolute",
+  },
+  groupChildPosition: {
+    top: 34,
+    height: 19,
+    backgroundColor: Color.colorGainsboro,
+    borderRadius: Border.br_9xs,
+    position: "absolute",
+  },
+  text3Position: {
+    top: 38,
+    position: "absolute",
+  },
   groupChild: {
     top: 270,
-    backgroundColor: "Darkslategray_200",
+    backgroundColor: Color.colorDarkslategray_200,
     height: 246,
     left: 0,
   },
@@ -359,7 +435,7 @@ const styles = StyleSheet.create({
     top: -27,
     left: -27,
     borderStyle: "dashed",
-    borderColor: "colorDarkslategray_200",
+    borderColor: Color.colorDarkslategray_200,
     borderRadius: 0.001,
     borderTopWidth: 55,
     width: 415,
@@ -381,33 +457,31 @@ const styles = StyleSheet.create({
     shadowRadius: 7,
     elevation: 7,
     shadowOpacity: 1,
-    backgroundColor: "colorGray_300",
+    backgroundColor: Color.colorGray_100,
   },
   layer1Icon: {
     width: 25,
     height: 32,
   },
   healthbot: {
-    color: "colorSnow_100",
-    display: "flex",
+    color: Color.colorSnow,
     width: 101,
     height: 29,
     marginLeft: 12,
     textAlign: "left",
-    fontSize: 20,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    alignItems: "center",
+    fontSize: FontSize.size_mid_3,
   },
   component1: {
     paddingHorizontal: 0,
     paddingVertical: 6,
-    alignItems: "center",
   },
   component1Wrapper: {
     right: 193,
-    paddingVertical: 24,
+    paddingVertical: Padding.p_lg,
     justifyContent: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: Padding.p_mini,
     height: 66,
     top: 0,
     left: 0,
@@ -420,30 +494,42 @@ const styles = StyleSheet.create({
     right: 1,
     left: 313,
     paddingVertical: 0,
-    alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: Padding.p_mini,
     position: "absolute",
   },
   layananPelanggan: {
     top: 2201,
-    color: "Aqua",
+    color: Color.colorAqua,
     textAlign: "left",
-    fontFamily: "poppinsBold",
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    fontSize: 20,
+    fontSize: FontSize.size_mid_3,
   },
   allRightsReserved: {
     marginLeft: -47,
     top: 2381,
     left: "50%",
-    color: "Gray_100",
+    color: "#feffff",
     textAlign: "left",
     display: "none",
   },
   text: {
     top: 1750,
+    left: 35,
+    color: Color.colorWhite,
   },
-
+  vectorIcon: {
+    width: "19.23%",
+    right: "61.54%",
+    left: "19.23%",
+    maxHeight: "100%",
+    maxWidth: "100%",
+    top: "0%",
+    bottom: "99.76%",
+    height: "0.24%",
+    position: "absolute",
+    overflow: "hidden",
+  },
   parent: {
     top: 577,
     width: 104,
@@ -451,41 +537,59 @@ const styles = StyleSheet.create({
   },
   healthbotgmailcom: {
     top: 1694,
+    left: 35,
+    color: Color.colorWhite,
   },
-
+  vectorIcon1: {
+    height: "0.2%",
+    width: "12.75%",
+    right: "87.25%",
+    bottom: "99.8%",
+  },
   healthbotgmailcomParent: {
     top: 560,
     width: 149,
     height: 1709,
   },
   jalanApaajadehKel: {
-    top: 1714,
+    top: 1345,
+    left: 26,
+    width: 122,
+    height: 24,
+    display: "flex",
+    alignItems: "center",
   },
-  
+  vectorIcon2: {
+    width: "8.65%",
+    right: "91.35%",
+    bottom: "99.76%",
+    height: "0.24%",
+    left: "0%",
+  },
   jalanApaajadehKelKejambonParent: {
-    top: 568,
-    width: 197,
-    height: 1744,
+    top: 943,
+    width: 148,
+    height: 1369,
   },
   filterBerdasarkan: {
     top: 105,
     left: 22,
-    fontSize: 14,
+    fontSize: FontSize.size_sm,
     position: "absolute",
-    fontFamily: "poppinsMedium",
+    fontFamily: FontFamily.poppinsMedium,
     fontWeight: "500",
-    color: "Black",
+    color: Color.colorBlack,
   },
   dokter: {
     top: 74,
     left: 56,
-    fontSize: 14,
+    fontSize: FontSize.size_sm,
     position: "absolute",
   },
   hapusFilter: {
     top: 109,
     left: 269,
-    fontSize: 12,
+    fontSize: FontSize.size_3xs,
     position: "absolute",
   },
   search1Icon: {
@@ -512,10 +616,10 @@ const styles = StyleSheet.create({
   },
   jenisKelamin: {
     left: 24,
-    fontFamily: "poppinsRegular",
+    fontFamily: FontFamily.poppinsRegular,
     textAlign: "center",
-    color: "Black",
-    fontSize: 24,
+    color: Color.colorBlack,
+    fontSize: FontSize.size_3xs,
   },
   listdokterItem: {
     left: 126,
@@ -528,171 +632,243 @@ const styles = StyleSheet.create({
   },
   harga: {
     left: 130,
-    fontFamily: "poppinsRegular",
+    fontFamily: FontFamily.poppinsRegular,
     textAlign: "center",
-    color: "Black",
-    fontSize: 24,
+    color: Color.colorBlack,
+    fontSize: FontSize.size_3xs,
   },
-  rectangleView: {
-    backgroundColor: "Gainsboro",
-    width: 62,
-    top: 0,
+  listdokterInner: {
+    top: 180,
     position: "absolute",
-    left: 0,
+    left: 24,
+    backgroundColor: Color.colorGainsboro,
+    width: 62,
   },
   drramaDaniPutra: {
-    left: 76,
-    fontSize: 24,
-    fontFamily: "poppinsBold",
+    left: 100,
+    textAlign: "center",
+    color: Color.colorBlack,
+    fontSize: FontSize.size_3xs,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    top: 0,
-    position: "absolute",
   },
   dokterUmum: {
-    top: 15,
-    left: 76,
-    fontFamily: "poppinsLight",
+    top: 195,
+    left: 100,
+    fontFamily: FontFamily.poppinsLight,
     fontWeight: "300",
-    fontSize: 24,
+    fontSize: FontSize.size_3xs,
     position: "absolute",
   },
-  groupChild1: {
+  rectangleView: {
     width: 56,
-    left: 76,
+    left: 100,
   },
   shoppingBag1Icon: {
-    left: 80,
-    top: 38,
+    left: 104,
+    width: 10,
+    top: 218,
     position: "absolute",
   },
   tahun: {
-    top: 37,
-    left: 95,
+    top: 217,
+    left: 119,
+    fontSize: FontSize.size_5xs,
     position: "absolute",
   },
-  groupChild2: {
-    left: 143,
+  listdokterChild1: {
     width: 43,
+    height: 19,
+    top: 214,
+    backgroundColor: Color.colorGainsboro,
+    borderRadius: Border.br_9xs,
+    position: "absolute",
   },
   text1: {
-    left: 165,
-    top: 38,
+    top: 218,
     position: "absolute",
   },
   thumbsUp1Icon: {
-    top: 39,
-    left: 147,
-    position: "absolute",
+    top: 219,
   },
   rp30000: {
-    top: 67,
-    left: 76,
+    top: 247,
+    left: 100,
   },
-  groupChild3: {
-    top: 62,
-    left: 227,
+  listdokterChild2: {
+    top: 242,
+    left: 251,
+    width: 82,
+    backgroundColor: Color.colorAqua,
   },
   chat: {
-    top: 65,
-    left: 253,
+    top: 245,
   },
   otongRemovebgPreview1Icon: {
-    top: 0,
-    position: "absolute",
-    left: 0,
-  },
-  rectangleContainer: {
     top: 180,
-  },
-  listdokterInner: {
-    width: 62,
-    height: 85,
+    position: "absolute",
     left: 24,
-    backgroundColor: "Gainsboro",
+  },
+  listdokterChild3: {
+    height: 85,
+    width: 62,
+    left: 24,
+    backgroundColor: Color.colorGainsboro,
   },
   drramaDaniPutra1: {
     left: 100,
     textAlign: "center",
-    color: "Black",
-    fontSize: 12,
-    fontFamily: "poppinsBold",
+    color: Color.colorBlack,
+    fontSize: FontSize.size_3xs,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
   },
   dokterUmum1: {
     top: 517,
     left: 100,
-    fontFamily: "poppinsLight",
+    fontFamily: FontFamily.poppinsLight,
     fontWeight: "300",
-    fontSize: 12,
+    fontSize: FontSize.size_3xs,
     position: "absolute",
   },
-  listdokterChild1: {
-    left: 100,
+  listdokterChild4: {
     width: 56,
+    left: 100,
   },
   shoppingBag1Icon1: {
-    left: 104,
     height: 10,
     width: 10,
+    left: 104,
   },
   tahun1: {
     top: 539,
     left: 119,
+    fontSize: FontSize.size_5xs,
     position: "absolute",
   },
-  listdokterChild2: {
-    left: 167,
+  listdokterChild5: {
     width: 43,
+    left: 167,
   },
   text2: {
     left: 189,
-    fontSize: 10,
+    fontSize: FontSize.size_5xs,
     textAlign: "center",
-    color: "Black",
-    fontFamily: "poppinsLight",
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsLight,
     fontWeight: "300",
   },
   thumbsUp1Icon1: {
     top: 541,
-    left: 171,
-    position: "absolute",
   },
   rp300001: {
     top: 569,
     left: 100,
   },
-  listdokterChild3: {
+  listdokterChild6: {
     top: 564,
     left: 251,
+    width: 82,
+    backgroundColor: Color.colorAqua,
   },
   chat1: {
     top: 567,
-    left: 277,
   },
   otongRemovebgPreview1Icon1: {
+    top: 498,
+    left: 25,
+    position: "absolute",
+  },
+  groupChild1: {
+    backgroundColor: Color.colorGainsboro,
     width: 62,
-    height: 85,
-    left: 24,
+    top: 0,
+    position: "absolute",
+    left: 0,
   },
-  groupView: {
-    top: 610,
-  },
-  rectangleParent1: {
-    top: 396,
-  },
-  drhadidRamadhan: {
-    left: 75,
-    fontSize:12,
-    fontFamily: "poppinsBold",
+  drramaDaniPutra2: {
+    left: 76,
+    fontSize: FontSize.size_3xs,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
     top: 0,
     position: "absolute",
   },
-  rectangleParent2: {
+  dokterUmum2: {
+    top: 15,
+    left: 76,
+    fontFamily: FontFamily.poppinsLight,
+    fontWeight: "300",
+    fontSize: FontSize.size_3xs,
+    position: "absolute",
+  },
+  groupChild2: {
+    left: 76,
+    width: 56,
+  },
+  shoppingBag1Icon2: {
+    left: 80,
+    height: 10,
+    width: 10,
+  },
+  tahun2: {
+    top: 37,
+    left: 95,
+    position: "absolute",
+  },
+  groupChild3: {
+    left: 143,
+    width: 43,
+  },
+  text3: {
+    left: 165,
+    fontSize: FontSize.size_5xs,
+    textAlign: "center",
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsLight,
+    fontWeight: "300",
+  },
+  thumbsUp1Icon2: {
+    top: 39,
+    left: 147,
+    position: "absolute",
+  },
+  rp300002: {
+    top: 67,
+    left: 76,
+  },
+  groupChild4: {
+    top: 62,
+    left: 227,
+  },
+  chat2: {
+    top: 65,
+    left: 253,
+  },
+  otongRemovebgPreview1Icon2: {
+    top: 0,
+    position: "absolute",
+    left: 0,
+  },
+  rectangleContainer: {
+    top: 610,
+  },
+  groupView: {
+    top: 396,
+  },
+  drhadidRamadhan: {
+    left: 75,
+    fontSize: FontSize.size_3xs,
+    fontFamily: FontFamily.poppinsBold,
+    fontWeight: "700",
+    top: 0,
+    position: "absolute",
+  },
+  rectangleParent1: {
     top: 288,
   },
   listdokter: {
-    backgroundColor: "Gray_200",
+    backgroundColor: "#fbfbfb",
     flex: 1,
     width: "100%",
     height: 800,
