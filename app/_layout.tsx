@@ -38,6 +38,10 @@ export default function RootLayout() {
         <Stack.Screen name="JadwalOlahraga" options={{ headerShown: false }}/>
         <Stack.Screen name="TokoObat" options={{ headerShown: false }}/>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="quesioner" options={{ headerShown: false }} />
+        <Stack.Screen name="biodataPage" options={{ headerShown: false }} />
+        <Stack.Screen name="Signinpage" options={{ headerShown: false }} />
+
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
