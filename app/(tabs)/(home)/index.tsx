@@ -133,13 +133,6 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
             </Link>
           </View>
 
-          {/* <View style={styles.forYouLayout}>
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../../assets/images/statistics.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Grafik Perkembangan</Text>
-            </TouchableOpacity>
-          </View> */}
-
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Cek Info Kesehatan</Text>
           </View>

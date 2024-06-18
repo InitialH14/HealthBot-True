@@ -13,20 +13,16 @@ const ListDokter = () => {
         <View style={[styles.groupInner, styles.groupPosition]} />
         <View style={[styles.component1Wrapper, styles.wrapperSpaceBlock]}>
           <View style={[styles.component1, styles.component1FlexBox]}>
-            <Image
-              style={styles.layer1Icon}
-              
-              source={require("../assets/layer-1.png")}
-            />
+            
             <Text style={[styles.healthbot, styles.drramaTypo]}>HEALTHBOT</Text>
           </View>
         </View>
         <View style={[styles.groupWrapper, styles.component1FlexBox]}>
-          <Image
+          {/* <Image
             style={[styles.groupIcon, styles.iconLayout]}
             
             source={require("../assets/group.png")}
-          />
+          /> */}
         </View>
       </View>
       <Text style={[styles.layananPelanggan, styles.parentPosition]}>
@@ -37,21 +33,12 @@ const ListDokter = () => {
       </Text>
       <View style={[styles.parent, styles.parentPosition]}>
         <Text style={[styles.text, styles.textTypo]}>021-777-9782</Text>
-        <Image
-          style={styles.vectorIcon}
-          
-          source={require("../assets/vector.png")}
-        />
+        
       </View>
       <View style={[styles.healthbotgmailcomParent, styles.parentPosition]}>
         <Text style={[styles.healthbotgmailcom, styles.textTypo]}>
           HealthBot@gmail.com
         </Text>
-        <Image
-          style={[styles.vectorIcon1, styles.vectorIconPosition]}
-          
-          source={require("../assets/vector1.png")}
-        />
       </View>
       <View
         style={[styles.jalanApaajadehKelKejambonParent, styles.parentPosition]}
@@ -60,11 +47,7 @@ const ListDokter = () => {
           style={[styles.jalanApaajadehKel, styles.textTypo]}
         >{`Jalan apaajadeh Kel. Kejambon
 Jawa Tengah, Indonesia`}</Text>
-        <Image
-          style={[styles.vectorIcon2, styles.vectorIconPosition]}
-          
-          source={require("../assets/vector2.png")}
-        />
+        
       </View>
       <Text style={[styles.filterBerdasarkan, styles.dokterFlexBox]}>
         Filter Berdasarkan
@@ -74,16 +57,16 @@ Jawa Tengah, Indonesia`}</Text>
       <Image
         style={styles.search1Icon}
         
-        source={require("../assets/search-1.png")}
+        source={require("../assets/images/search_1.png")}
       />
       <Image
         style={[styles.angleLeft1Icon, styles.iconLayout]}
-        source={require("../assets/angleleft-1.png")}
+        source={require("../assets/images/angle-left-1.png")}
       />
       <View style={[styles.listdokterChild, styles.listdokterLayout]} />
       <Image
         style={[styles.caretDown1Icon, styles.caretIconPosition]}
-        source={require("../assets/caretdown-1.png")}
+        source={require("../assets/images/caretdown-1.png")}
       />
       <Text style={[styles.jenisKelamin, styles.caretIconPosition]}>
         Jenis Kelamin
@@ -91,7 +74,7 @@ Jawa Tengah, Indonesia`}</Text>
       <View style={[styles.listdokterItem, styles.listdokterLayout]} />
       <Image
         style={[styles.caretDown2Icon, styles.caretIconPosition]}
-        source={require("../assets/caretdown-1.png")}
+        source={require("../assets/images/caretdown-1.png")}
       />
       <Text style={[styles.harga, styles.caretIconPosition]}>Harga</Text>
       <View style={[styles.rectangleContainer, styles.rectangleParentLayout]}>
@@ -105,21 +88,21 @@ Jawa Tengah, Indonesia`}</Text>
         <View style={[styles.groupChild1, styles.groupChildLayout]} />
         <Image
           style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/shoppingbag-1.png")}
+          source={require("../assets/images/shoppingbag-1.png")}
         />
         <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
         <View style={[styles.groupChild2, styles.groupChildLayout]} />
         <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
         <Image
           style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/thumbsup-1.png")}
+          source={require("../assets/images/thumbsup-1.png")}
         />
         <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
         <View style={[styles.groupChild3, styles.childLayout]} />
         <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
         <Image
           style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
-          source={require("../assets/otongremovebgpreview-1.png")}
+          source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
       <View style={[styles.listdokterInner, styles.listdokterInnerPosition]} />
@@ -132,14 +115,14 @@ Jawa Tengah, Indonesia`}</Text>
       <View style={[styles.listdokterChild1, styles.listdokterChildPosition]} />
       <Image
         style={[styles.shoppingBag1Icon1, styles.text2Position]}
-        source={require("../assets/shoppingbag-1.png")}
+        source={require("../assets/images/shoppingbag-1.png")}
       />
       <Text style={[styles.tahun1, styles.tahunTypo]}>8 Tahun</Text>
       <View style={[styles.listdokterChild2, styles.listdokterChildPosition]} />
       <Text style={[styles.text2, styles.text2Position]}>97%</Text>
       <Image
         style={[styles.thumbsUp1Icon1, styles.thumbsIconLayout]}
-        source={require("../assets/thumbsup-1.png")}
+        source={require("../assets/images/thumbsup-1.png")}
       />
       <Text style={[styles.rp300001, styles.chatTypo]}>Rp30.000</Text>
       <View style={[styles.listdokterChild3, styles.childLayout]} />
@@ -149,7 +132,7 @@ Jawa Tengah, Indonesia`}</Text>
           styles.otongRemovebgPreview1Icon1,
           styles.listdokterInnerPosition,
         ]}
-        source={require("../assets/otongremovebgpreview-1.png")}
+        source={require("../assets/images/otongremovebgpreview-1.png")}
       />
       <View style={[styles.groupView, styles.rectangleParentLayout]}>
         <View style={[styles.rectangleView, styles.otongIconLayout]} />
@@ -162,21 +145,21 @@ Jawa Tengah, Indonesia`}</Text>
         <View style={[styles.groupChild1, styles.groupChildLayout]} />
         <Image
           style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/shoppingbag-1.png")}
+          source={require("../assets/images/shoppingbag-1.png")}
         />
         <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
         <View style={[styles.groupChild2, styles.groupChildLayout]} />
         <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
         <Image
           style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/thumbsup-1.png")}
+          source={require("../assets/images/thumbsup-1.png")}
         />
         <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
         <View style={[styles.groupChild3, styles.childLayout]} />
         <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
         <Image
           style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
-          source={require("../assets/otongremovebgpreview-1.png")}
+          source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
       <View style={[styles.rectangleParent1, styles.rectangleParentLayout]}>
@@ -190,21 +173,21 @@ Jawa Tengah, Indonesia`}</Text>
         <View style={[styles.groupChild1, styles.groupChildLayout]} />
         <Image
           style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/shoppingbag-1.png")}
+          source={require("../assets/images/shoppingbag-1.png")}
         />
         <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
         <View style={[styles.groupChild2, styles.groupChildLayout]} />
         <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
         <Image
           style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/thumbsup-1.png")}
+          source={require("../assets/images/thumbsup-1.png")}
         />
         <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
         <View style={[styles.groupChild3, styles.childLayout]} />
         <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
         <Image
           style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
-          source={require("../assets/otongremovebgpreview-1.png")}
+          source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
       <View style={[styles.rectangleParent2, styles.rectangleParentLayout]}>
@@ -218,21 +201,21 @@ Jawa Tengah, Indonesia`}</Text>
         <View style={[styles.groupChild1, styles.groupChildLayout]} />
         <Image
           style={[styles.shoppingBag1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/shoppingbag-1.png")}
+          source={require("../assets/images/shoppingbag-1.png")}
         />
         <Text style={[styles.tahun, styles.tahunTypo]}>8 Tahun</Text>
         <View style={[styles.groupChild2, styles.groupChildLayout]} />
         <Text style={[styles.text1, styles.tahunTypo]}>97%</Text>
         <Image
           style={[styles.thumbsUp1Icon, styles.thumbsIconLayout]}
-          source={require("../assets/thumbsup-1.png")}
+          source={require("../assets/images/thumbsup-1.png")}
         />
         <Text style={[styles.rp30000, styles.chatTypo]}>Rp30.000</Text>
         <View style={[styles.groupChild3, styles.childLayout]} />
         <Text style={[styles.chat, styles.chatTypo]}>Chat</Text>
         <Image
           style={[styles.otongRemovebgPreview1Icon, styles.otongIconLayout]}
-          source={require("../assets/otongremovebgpreview-1.png")}
+          source={require("../assets/images/otongremovebgpreview-1.png")}
         />
       </View>
     </View>
@@ -287,14 +270,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: "left",
     position: "absolute",
-  },
-  vectorIconPosition: {
-    left: "0%",
-    maxHeight: "100%",
-    maxWidth: "100%",
-    top: "0%",
-    position: "absolute",
-    overflow: "hidden",
   },
   dokterFlexBox: {
     textAlign: "center",
@@ -468,18 +443,7 @@ const styles = StyleSheet.create({
   text: {
     top: 1750,
   },
-  vectorIcon: {
-    width: "19.23%",
-    right: "61.54%",
-    left: "19.23%",
-    maxHeight: "100%",
-    maxWidth: "100%",
-    top: "0%",
-    bottom: "99.76%",
-    height: "0.24%",
-    position: "absolute",
-    overflow: "hidden",
-  },
+
   parent: {
     top: 577,
     width: 104,
@@ -488,12 +452,7 @@ const styles = StyleSheet.create({
   healthbotgmailcom: {
     top: 1694,
   },
-  vectorIcon1: {
-    height: "0.2%",
-    width: "12.75%",
-    right: "87.25%",
-    bottom: "99.8%",
-  },
+
   healthbotgmailcomParent: {
     top: 560,
     width: 149,
@@ -502,13 +461,7 @@ const styles = StyleSheet.create({
   jalanApaajadehKel: {
     top: 1714,
   },
-  vectorIcon2: {
-    width: "8.63%",
-    right: "91.37%",
-    bottom: "99.76%",
-    height: "0.24%",
-    left: "0%",
-  },
+  
   jalanApaajadehKelKejambonParent: {
     top: 568,
     width: 197,

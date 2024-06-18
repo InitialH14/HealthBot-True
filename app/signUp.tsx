@@ -60,7 +60,7 @@ const Signuppage: React.FC<{navigation:any}> = ({navigation}) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Link href={"(tabs)/(home)"} asChild>
+        <Link href={"/index"} asChild>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
