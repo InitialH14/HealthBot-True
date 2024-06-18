@@ -9,7 +9,7 @@ const ChatBotWidget = () => {
   const [textInput, setTextInput] = useState('');
   const [data, setData] = useState([{type: 'assistant', 'text': "Selamat datang! Coba ceritakan apa keluhan mu"}]);
   const textInputRef = useRef(null);
-  const apiKunci = config.GPT_KEY;
+  const apiKey = config.GPT_KEY;
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
   const handleSend = async () => {
@@ -28,7 +28,7 @@ const ChatBotWidget = () => {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKunci}`
+          'Authorization': `Bearer ${apiKey}`
         }
       });
       
