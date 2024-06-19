@@ -1,3 +1,5 @@
+
+=======
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
@@ -53,6 +55,26 @@ const Signinpage: React.FC<Login> = (Login) => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [result, setResult] = useState<Date[]>([]);
+  const [startDate1, setStartDate1] = useState('');
+  const [endDate1, setEndDate1] = useState('');
+  const [result1, setResult1] = useState<number[]>([]);
+
+  const isLeapYear = (year: number) => {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  };
+
+  const handleSignIn = () => {
+    const startYear = parseInt(startDate1);
+    const endYear = parseInt(endDate1);
+    const leapYears: number[] = [];
+
+    for (let year = startYear; year <= endYear; year++) {
+      if (isLeapYear(year)) {
+        leapYears.push(year);
+      }
+    }
+
+    setResult(leapYears);
 
   const handleSignIn = () => {
     const start = new Date(startDate);
@@ -86,7 +108,8 @@ const Signinpage: React.FC<Login> = (Login) => {
           onChangeText={setStartDate}
         />
       </View>
-
+      
+      
       <Text style={{ marginTop: 10 }}>Tanggal Akhir</Text>
       <View style={styles.inputContainer}>
         <TextInput
@@ -107,6 +130,27 @@ const Signinpage: React.FC<Login> = (Login) => {
           <Text key={index}>{date.toDateString()}</Text>
         ))}
       </View>
+       <Text style={styles.title}>UAS</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Tahun Awal"
+          value={startDate1}
+          onChangeText={setStartDate1}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Tahun Akhir"
+          value={endDate1}
+          onChangeText={setEndDate1}
+          keyboardType="numeric"
+        />
+        <Text style={{ marginTop: 20 }}>Tahun kabisat antara {startDate} dan {endDate}:</Text>
+      <View>
+        {result.map((year, index) => (
+          <Text key={index}>{year}</Text>
+        ))}
+      </View>
       {/* <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -123,10 +167,10 @@ const Signinpage: React.FC<Login> = (Login) => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={() => console.log('Forgot Password pressed')}>
-        <Text style={styles.forgotPassword}>Forgot password?</Text>
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+        <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
-
+      
         <Link href={urlLogin} asChild>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Sign In</Text>
@@ -158,9 +202,6 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginBottom: 20,
   },
-  backIcon: {
-    fontSize: 30,
-  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -179,12 +220,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: '90%'
   },
-  forgotPassword: {
-    marginTop: 10,
-    textAlign: 'right',
-    fontSize: 12,
-    color: '#000',
-  },
   button: {
     marginTop: 30,
     height: 50,
@@ -197,36 +232,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  loginWith: {
-    marginTop: 20,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderWidth: 1,
-    borderColor: '#57F2F2',
-  },
-  googleIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 10,
-  },
-  googleButtonText: {
-    color: '#000',
-    fontWeight: 'bold',
-  },
-  signUpPrompt: {
-    marginTop: 50,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  signUpText: {
-    color: '#000',
-  },
+  }
 });
 
 export default Signinpage;
