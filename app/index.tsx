@@ -1,62 +1,67 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+const Signinpage = () => {
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [result, setResult] = useState<number[]>([]);
 
-  const handleSignIn = () => {
-    console.log('Sign In button pressed');
+  const isLeapYear = (year: number) => {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
   };
 
-  const handleGoogleSignIn = () => {
-    console.log('Google Sign In button pressed');
+  const handleSignIn = () => {
+    const startYear = parseInt(startDate);
+    const endYear = parseInt(endDate);
+    const leapYears: number[] = [];
+
+    for (let year = startYear; year <= endYear; year++) {
+      if (isLeapYear(year)) {
+        leapYears.push(year);
+      }
+    }
+
+    setResult(leapYears);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Log In</Text>
+        <Text style={styles.title}>UAS</Text>
       </View>
 
+      <Text>Tanggal Awal</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
-          value={username}
-          onChangeText={setUsername}
+          placeholder="Tahun Awal"
+          value={startDate}
+          onChangeText={setStartDate}
+          keyboardType="numeric"
         />
       </View>
 
+      <Text style={{ marginTop: 10 }}>Tanggal Akhir</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
+          placeholder="Tahun Akhir"
+          value={endDate}
+          onChangeText={setEndDate}
+          keyboardType="numeric"
         />
       </View>
 
-      <TouchableOpacity onPress={() => console.log('Forgot Password pressed')}>
-        <Text style={styles.forgotPassword}>Forgot password?</Text>
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+        <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
 
-        <Link href={"biodata"} asChild>
-          <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-            <Text style={styles.buttonText}>Sign In</Text>
-          </TouchableOpacity>
-        </Link>
-
-      <Text style={styles.signUpPrompt}>Don't have an account?</Text>
-      
-      <Link href={"signUp"} asChild>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
-          <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
-        </TouchableOpacity>
-      </Link>
-      
+      <Text style={{ marginTop: 20 }}>Tahun kabisat antara {startDate} dan {endDate}:</Text>
+      <View>
+        {result.map((year, index) => (
+          <Text key={index}>{year}</Text>
+        ))}
+      </View>
     </View>
   );
 };
@@ -74,9 +79,6 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginBottom: 20,
   },
-  backIcon: {
-    fontSize: 30,
-  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -84,19 +86,16 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginTop: 20,
-  },
-  input: {
-    height: 50,
     borderColor: '#717171',
     borderWidth: 1,
     borderRadius: 16,
     paddingHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
-  forgotPassword: {
-    marginTop: 10,
-    textAlign: 'right',
-    fontSize: 12,
-    color: '#000',
+  input: {
+    height: 50,
+    width: '90%'
   },
   button: {
     marginTop: 30,
@@ -110,36 +109,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  loginWith: {
-    marginTop: 20,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderWidth: 1,
-    borderColor: '#57F2F2',
-  },
-  googleIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 10,
-  },
-  googleButtonText: {
-    color: '#000',
-    fontWeight: 'bold',
-  },
-  signUpPrompt: {
-    marginTop: 50,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  signUpText: {
-    color: '#000',
-  },
+  }
 });
 
 export default Signinpage;
