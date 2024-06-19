@@ -1,12 +1,11 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { Text, StyleSheet, View, Pressable, TextInput } from "react-native";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Color, FontFamily, Border, FontSize } from "./GlobalStyles";
 import { Link } from "expo-router";
 
 const BiodataPage = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.biodataPage}>
@@ -14,13 +13,14 @@ const BiodataPage = () => {
         style={[styles.harapMengisiData, styles.lanjutTypo]}
       >{`Harap Mengisi Data diri
 Anda!`}</Text>
-      <View style={styles.biodataPageChild} />
+      <Text style={[styles.namaLengkap, styles.usiaTypo]}>Nama Lengkap</Text>
+      <TextInput style={styles.biodataPageChild}/>
       <View style={[styles.biodataPageItem, styles.biodataLayout]} />
       <View style={[styles.biodataPageInner, styles.biodataLayout]} />
       <View style={[styles.rectangleView, styles.rectangleViewBorder]} />
       <View style={styles.biodataPageChild1} />
       <View style={[styles.biodataPageChild2, styles.rectangleViewBorder]} />
-      <Text style={[styles.namaLengkap, styles.usiaTypo]}>Nama Lengkap</Text>
+      
       <Text style={[styles.pekerjaan, styles.usiaTypo]}>Pekerjaan</Text>
       <Text style={[styles.usia, styles.usiaTypo]}>Usia</Text>
       <Text style={[styles.jenisKelamin, styles.usiaTypo]}>Jenis kelamin</Text>
@@ -28,14 +28,7 @@ Anda!`}</Text>
         Nomor Handphone
       </Text>
       <Text style={[styles.tanggalLahir, styles.usiaTypo]}>Tanggal Lahir</Text>
-      <Link href={"(tabs)/(home)"} asChild>
-      <Pressable
-        style={[styles.rectangleParent, styles.groupChildLayout]}
-      >
-        <View style={[styles.groupChild, styles.groupChildLayout]} />
-        <Text style={[styles.lanjut, styles.lanjutTypo]}>Lanjut</Text>
-      </Pressable>
-      </Link>
+      
     </View>
   );
 };
@@ -46,8 +39,6 @@ const styles = StyleSheet.create({
     color: Color.colorBlack,
     fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    left: "50%",
-    position: "absolute",
   },
   biodataLayout: {
     height: 43,
@@ -57,7 +48,6 @@ const styles = StyleSheet.create({
     borderColor: Color.colorDimgray,
     borderStyle: "solid",
     borderRadius: Border.br_xl,
-    position: "absolute",
   },
   rectangleViewBorder: {
     left: 47,
@@ -66,7 +56,6 @@ const styles = StyleSheet.create({
     borderColor: Color.colorDimgray,
     borderStyle: "solid",
     borderRadius: Border.br_xl,
-    position: "absolute",
   },
   usiaTypo: {
     opacity: 0.5,
@@ -75,21 +64,17 @@ const styles = StyleSheet.create({
     color: Color.colorBlack,
     fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    position: "absolute",
   },
   groupChildLayout: {
     width: 252,
     height: 45,
     left: "50%",
-    position: "absolute",
   },
   harapMengisiData: {
-    marginLeft: -144,
     top: 68,
     fontSize: FontSize.size_xl,
   },
   biodataPageChild: {
-    top: 178,
     left: 45,
     height: 45,
     borderWidth: 2,
@@ -97,7 +82,6 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     width: 268,
     borderRadius: Border.br_xl,
-    position: "absolute",
   },
   biodataPageItem: {
     top: 251,
@@ -119,7 +103,6 @@ const styles = StyleSheet.create({
     borderColor: Color.colorDimgray,
     borderStyle: "solid",
     borderRadius: Border.br_xl,
-    position: "absolute",
   },
   biodataPageChild2: {
     top: 394,
@@ -173,7 +156,6 @@ const styles = StyleSheet.create({
   },
   rectangleParent: {
     marginLeft: -125,
-    top: 648,
   },
   biodataPage: {
     backgroundColor: Color.colorWhite,
