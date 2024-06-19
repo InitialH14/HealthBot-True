@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  Image
+  ImageBackground,
+  Button
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -15,25 +16,26 @@ import { Ionicons } from '@expo/vector-icons';
 const { width } = Dimensions.get('window');
 
 const dummyOlahraga = [{
-    "day": "Senin",
-    "beginTime" : "07.00",
-    "endTime" : "09.00",
-    "date" : "27/10/2023"
+    "day": "1",
+    "url" : require('../assets/images/fit-1.jpg')
 }, {
-    "day": "Selasa",
-    "beginTime" : "07.00",
-    "endTime" : "09.00",
-    "date" : "28/10/2023"
+    "day": "2",
+    "url" : require('../assets/images/fit-2.jpg')
 }, {
-    "day": "Rabu",
-    "beginTime" : "07.00",
-    "endTime" : "09.00",
-    "date" : "29/10/2023"
+    "day": "3",
+    "url" : require('../assets/images/fit-3.jpg')
 },  {
-    "day": "Kamis",
-    "beginTime" : "07.00",
-    "endTime" : "09.00",
-    "date" : "29/10/2023"
+    "day": "4",
+    "url" : require('../assets/images/fit-4.jpg')
+}, {
+  "day": "5",
+  "url" : require('../assets/images/fit-5.jpg')
+}, {
+  "day": "6",
+  "url" : require('../assets/images/fit-6.jpg')
+}, {
+  "day": "7",
+  "url" : require('../assets/images/fit-7.jpg')
 }]
 
 const RekomendasiOlahraga: React.FC<{navigation:any}> = ({navigation}) => {
@@ -41,18 +43,28 @@ const RekomendasiOlahraga: React.FC<{navigation:any}> = ({navigation}) => {
   return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => router.back()}>
-                    <Ionicons name="arrow-back-outline" color="#000000" size={25}/>
-                </TouchableOpacity>
-                <Text style={styles.appBarTitle}>Rekomendasi Olahraga</Text>
+          <ImageBackground source={require("../assets/images/header-img.jpg")} resizeMode="cover" style={styles.header}>
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="arrow-back-outline" color="#FFF" size={30}/>
+            </TouchableOpacity>
+          </ImageBackground>
+          <View style={{paddingHorizontal: 20}}>
+            <Text style={styles.appBarTitle}>Rekomendasi Olahraga</Text>
+            <Text style={styles.subTitle}>Dapatkan rekomendasi program olahragamu menurut HealthBot AI!</Text>
+            <View style={styles.ButtonContainer}>
+              <TouchableOpacity style={styles.Button}>
+                <Text style={styles.TextButton}>Dapatkan Rekomendasi</Text>
+              </TouchableOpacity>
             </View>
+            {dummyOlahraga.map((e, i) => <TouchableOpacity key={i} style={{borderRadius: 20}}>
+              <View style={{borderRadius: 20}}>
+              <ImageBackground source={e.url} resizeMode="cover" style={styles.infoContainer}>
+                  <Text style={styles.titleInfo}>Hari {e.day}</Text>
+                </ImageBackground>    
+              </View>
+              </TouchableOpacity>)}
+          </View>
             
-            {dummyOlahraga.map((e, i) => <TouchableOpacity key={i} style={styles.infoContainer}>
-                <Text style={styles.titleInfo}>{e.day}</Text>
-                <View style={styles.textLayout}><Ionicons name="time" color="#FFFFFF" size={16}/><Text style={styles.textInfo}> {e.beginTime} - {e.endTime}</Text></View>
-                <View style={styles.textLayout}><Ionicons name="calendar" color="#FFFFFF" size={16}/><Text style={styles.textInfo}> {e.date}</Text></View>
-            </TouchableOpacity>)}
         </ScrollView>
       </View>
   );
@@ -61,22 +73,26 @@ const RekomendasiOlahraga: React.FC<{navigation:any}> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F0F0',
-    paddingHorizontal: 20
+    backgroundColor: '#151515',
   },
   header: {
+    height: 200,
     flexDirection: 'row',
-    alignItems: 'center',
     elevation: 2,
-    padding: 10,
-    paddingTop: 60,
-    marginBottom: 30
+    paddingTop: 50,
+    paddingHorizontal: 20,
+    marginBottom: 30,
   },
   appBarTitle: {
-    color: 'black',
-    fontSize: 20,
+    color: '#EEEEEE',
+    fontSize: 23,
     fontWeight: '600',
-    marginLeft: 20
+    marginBottom: 15
+  },
+  subTitle: {
+    color: '#EEEEEE',
+    fontSize: 14,
+    marginBottom: 30
   },
   scrollView: {
     flex: 1,
@@ -84,15 +100,15 @@ const styles = StyleSheet.create({
   infoContainer: {
     height: 130,
     backgroundColor: '#04364A',
-    borderRadius: 10,
     paddingVertical: 20,
     paddingHorizontal: 20,
     justifyContent: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    borderRadius: 20
   },
   titleInfo: {
     color: 'white',
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 8
   },
@@ -105,6 +121,22 @@ const styles = StyleSheet.create({
   },
   textLayout: {
     flexDirection: 'row',
+  },
+  ButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 40
+  },
+  Button: {
+    width: '100%',
+    height: 40,
+    padding: 10,
+    borderRadius: 20,
+    backgroundColor: '#FFF',
+    alignItems: 'center'
+  },
+  TextButton: {
+    color: 'black'
   }
 
 });

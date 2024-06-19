@@ -21,14 +21,18 @@ const RekomendasiMenuDietScreen: React.FC<RekomendasiMenuDietScreenProps> = ({ n
       </View>
 
       <View style={styles.row}>
+        <Link href={"/menuDiet1"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/apple.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Senin</Text>
         </TouchableOpacity>
+        </Link>
+        <Link href={"/menuDiet1"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/salad.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Selasa</Text>
         </TouchableOpacity>
+        </Link>
       </View>
       <View style={styles.row}>
         <TouchableOpacity style={styles.card}>
