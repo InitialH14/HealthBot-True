@@ -1,71 +1,113 @@
-// import React, { useState, useEffect } from 'react';
-// import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
-// import { Ionicons } from "@expo/vector-icons";
-// import { Link } from 'expo-router';
-// import { initializeApp } from '@firebase/app';
-// import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from '@firebase/auth';
+//  import React, { useState, useEffect } from 'react';
+//  import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+//  import { Ionicons } from "@expo/vector-icons";
+//  import { Link } from 'expo-router';
+//  import { initializeApp } from '@firebase/app';
+//  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from '@firebase/auth';
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDqXN7XGrzNdSd352CWFGHIpETcieA11JY",
-//   authDomain: "healthbot-5e9f5.firebaseapp.com",
-//   projectId: "healthbot-5e9f5",
-//   storageBucket: "healthbot-5e9f5.appspot.com",
-//   messagingSenderId: "923533418473",
-//   appId: "1:923533418473:web:32e845002b7ddcfffc3578"
-// };
+// // const firebaseConfig = {
+// //   apiKey: "AIzaSyDqXN7XGrzNdSd352CWFGHIpETcieA11JY",
+// //   authDomain: "healthbot-5e9f5.firebaseapp.com",
+// //   projectId: "healthbot-5e9f5",
+// //   storageBucket: "healthbot-5e9f5.appspot.com",
+// //   messagingSenderId: "923533418473",
+// //   appId: "1:923533418473:web:32e845002b7ddcfffc3578"
+// // };
 
-// interface Login {
-//   navigation: any
-// }
+// // interface Login {
+// //   navigation: any
+// // }
 
-// const app = initializeApp(firebaseConfig);
+// // const app = initializeApp(firebaseConfig);
 
 // const Signinpage: React.FC<Login> = (Login) => {
-//   const [email, setEmail] = useState<string>('');
-//   const [password, setPassword] = useState<string>('');
-//   const [user, setUser] = useState<string>('');
-//   const [isShown, setIsShown] = useState<boolean>(false);
-//   const [urlLogin, setUrlLogin] = useState<string>('');
+//   // const [email, setEmail] = useState<string>('');
+//   // const [password, setPassword] = useState<string>('');
+//   // const [user, setUser] = useState<string>('');
+//   // const [isShown, setIsShown] = useState<boolean>(false);
+//   // const [urlLogin, setUrlLogin] = useState<string>('');
 
-//   const auth = getAuth(app);
+//   // const auth = getAuth(app);
 
-//   useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, (user:any) => {
-//       setUser(user);
-//     });
+//   // useEffect(() => {
+//   //   const unsubscribe = onAuthStateChanged(auth, (user:any) => {
+//   //     setUser(user);
+//   //   });
 
-//     return () => unsubscribe();
-//   }, [auth]);
+//   //   return () => unsubscribe();
+//   // }, [auth]);
 
-//   const handleSignIn = async () => {
-//     try{
-//     const res = await signInWithEmailAndPassword(auth, email, password);
-//     if (res){
-//       console.log('User signed in successfully!');
-//       setUrlLogin("(tabs)/(home)");
-//     }
+//   // const handleSignIn = async () => {
+//   //   try{
+//   //   const res = await signInWithEmailAndPassword(auth, email, password);
+//   //   if (res){
+//   //     console.log('User signed in successfully!');
+//   //     setUrlLogin("(tabs)/(home)");
+//   //   }
     
-//     } catch (error) {
-//       console.error('User signed in successfully!', error);
+//   //   } catch (error) {
+//   //     console.error('User signed in successfully!', error);
+//   //   }
+//   // };
+
+//   const [startDate, setStartDate] = useState('');
+//   const [endDate, setEndDate] = useState('');
+//   const [result, setResult] = useState<Date[]>([]);
+
+//   const handleSignIn = () => {
+//     const start = new Date(startDate);
+//     const end = new Date(endDate);
+//     const days: Date[] = [];
+
+//     while (start <= end) {
+//       if (start.getDay() === 0 || start.getDay() === 6) {
+//         const newDate = new Date(start);
+//         newDate.setFullYear(2024); // Set the year to 2024
+//         days.push(newDate);
+//       }
+//       start.setDate(start.getDate() + 1);
 //     }
+
+//     setResult(days);
 //   };
 
 //   return (
 //     <View style={styles.container}>
 //       <View style={styles.header}>
-//         <Text style={styles.title}>Log In</Text>
+//         <Text style={styles.title}>Ujian Tengah Semester</Text>
 //       </View>
 
+//       <Text>Tanggal Awal</Text>
 //       <View style={styles.inputContainer}>
 //         <TextInput
 //           style={styles.input}
-//           placeholder="Username"
-//           value={email}
-//           onChangeText={setEmail}
+//           placeholder="Tanggal Awal"
+//           value={startDate}
+//           onChangeText={setStartDate}
 //         />
 //       </View>
 
+//       <Text style={{ marginTop: 10 }}>Tanggal Akhir</Text>
 //       <View style={styles.inputContainer}>
+//         <TextInput
+//           style={styles.input}
+//           placeholder="Tanggal Akhir"
+//           value={endDate}
+//           onChangeText={setEndDate}
+//         />
+//       </View>
+
+//       <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+//         <Text style={styles.buttonText}>Submit</Text>
+//       </TouchableOpacity>
+
+//       <Text style={{ marginTop: 20 }}>Hari sabtu dan minggu antara tanggal {startDate} dan {endDate}:</Text>
+//       <View>
+//         {result.map((date, index) => (
+//           <Text key={index}>{date.toDateString()}</Text>
+//         ))}
+//       </View>
+//       {/* <View style={styles.inputContainer}>
 //         <TextInput
 //           style={styles.input}
 //           placeholder="Password"
@@ -98,7 +140,7 @@
 //           <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
 //         </TouchableOpacity>
 //       </Link>
-      
+//        */}
 //     </View>
 //   );
 // };
@@ -106,88 +148,31 @@
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
-//     backgroundColor: '#F5F5F5',
-//     padding: 20,
-//     paddingHorizontal: 30
-//   },
-//   header: {
-//     flexDirection: 'row',
+//     backgroundColor: '#fff',
 //     alignItems: 'center',
-//     marginTop: 80,
-//     marginBottom: 20,
-//   },
-//   backIcon: {
-//     fontSize: 30,
+//     justifyContent: 'center',
+//     padding: 20,
 //   },
 //   title: {
 //     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginLeft: 5,
-//   },
-//   inputContainer: {
-//     marginTop: 20,
-//     borderColor: '#717171',
-//     borderWidth: 1,
-//     borderRadius: 16,
-//     paddingHorizontal: 10,
-//     flexDirection: 'row',
-//     alignItems: 'center'
+//     marginBottom: 20,
 //   },
 //   input: {
-//     height: 50,
-//     width: '90%'
-//   },
-//   forgotPassword: {
-//     marginTop: 10,
-//     textAlign: 'right',
-//     fontSize: 12,
-//     color: '#000',
-//   },
-//   button: {
-//     marginTop: 30,
-//     height: 50,
-//     backgroundColor: '#57F2F2',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     borderRadius: 16,
-//   },
-//   buttonText: {
-//     color: '#FFF',
-//     fontWeight: 'bold',
-//     fontSize: 16,
-//   },
-//   loginWith: {
-//     marginTop: 20,
-//     textAlign: 'center',
-//     fontSize: 16,
-//   },
-//   googleButton: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     backgroundColor: '#FFF',
+//     height: 40,
+//     borderColor: 'gray',
 //     borderWidth: 1,
-//     borderColor: '#57F2F2',
+//     marginBottom: 20,
+//     paddingLeft: 10,
+//     width: '80%',
 //   },
-//   googleIcon: {
-//     width: 24,
-//     height: 24,
-//     marginRight: 10,
-//   },
-//   googleButtonText: {
-//     color: '#000',
-//     fontWeight: 'bold',
-//   },
-//   signUpPrompt: {
-//     marginTop: 50,
-//     textAlign: 'center',
-//     fontSize: 16,
-//   },
-//   signUpText: {
-//     color: '#000',
+//   item: {
+//     padding: 10,
+//     fontSize: 18,
+//     height: 44,
 //   },
 // });
 
-// export default Signinpage;
+// export default App;
 
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, FlatList, Alert } from 'react-native';
