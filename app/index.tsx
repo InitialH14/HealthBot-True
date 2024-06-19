@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 const Signinpage: React.FC<{navigation:any}> = ({navigation}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-
+  
   const handleSignIn = () => {
     console.log('Sign In button pressed');
   };
