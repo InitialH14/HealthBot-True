@@ -21,51 +21,93 @@ interface Login {
 const app = initializeApp(firebaseConfig);
 
 const Signinpage: React.FC<Login> = (Login) => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [user, setUser] = useState<string>('');
-  const [isShown, setIsShown] = useState<boolean>(false);
-  const [urlLogin, setUrlLogin] = useState<string>('');
+  // const [email, setEmail] = useState<string>('');
+  // const [password, setPassword] = useState<string>('');
+  // const [user, setUser] = useState<string>('');
+  // const [isShown, setIsShown] = useState<boolean>(false);
+  // const [urlLogin, setUrlLogin] = useState<string>('');
 
-  const auth = getAuth(app);
+  // const auth = getAuth(app);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user:any) => {
-      setUser(user);
-    });
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user:any) => {
+  //     setUser(user);
+  //   });
 
-    return () => unsubscribe();
-  }, [auth]);
+  //   return () => unsubscribe();
+  // }, [auth]);
 
-  const handleSignIn = async () => {
-    try{
-    const res = await signInWithEmailAndPassword(auth, email, password);
-    if (res){
-      console.log('User signed in successfully!');
-      setUrlLogin("(tabs)/(home)");
-    }
+  // const handleSignIn = async () => {
+  //   try{
+  //   const res = await signInWithEmailAndPassword(auth, email, password);
+  //   if (res){
+  //     console.log('User signed in successfully!');
+  //     setUrlLogin("(tabs)/(home)");
+  //   }
     
-    } catch (error) {
-      console.error('User signed in successfully!', error);
+  //   } catch (error) {
+  //     console.error('User signed in successfully!', error);
+  //   }
+  // };
+
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [result, setResult] = useState<Date[]>([]);
+
+  const handleSignIn = () => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const days: Date[] = [];
+
+    while (start <= end) {
+      if (start.getDay() === 0 || start.getDay() === 6) {
+        const newDate = new Date(start);
+        newDate.setFullYear(2024); // Set the year to 2024
+        days.push(newDate);
+      }
+      start.setDate(start.getDate() + 1);
     }
+
+    setResult(days);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Log In</Text>
+        <Text style={styles.title}>Ujian Tengah Semester</Text>
       </View>
 
+      <Text>Tanggal Awal</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
-          value={email}
-          onChangeText={setEmail}
+          placeholder="Tanggal Awal"
+          value={startDate}
+          onChangeText={setStartDate}
         />
       </View>
 
+      <Text style={{ marginTop: 10 }}>Tanggal Akhir</Text>
       <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Tanggal Akhir"
+          value={endDate}
+          onChangeText={setEndDate}
+        />
+      </View>
+
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
+
+      <Text style={{ marginTop: 20 }}>Hari sabtu dan minggu antara tanggal {startDate} dan {endDate}:</Text>
+      <View>
+        {result.map((date, index) => (
+          <Text key={index}>{date.toDateString()}</Text>
+        ))}
+      </View>
+      {/* <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
           placeholder="Password"
@@ -98,7 +140,7 @@ const Signinpage: React.FC<Login> = (Login) => {
           <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
         </TouchableOpacity>
       </Link>
-      
+       */}
     </View>
   );
 };
