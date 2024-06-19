@@ -73,7 +73,7 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
               </TouchableOpacity>
             </Link>
             
-            <Link href={"/../chatDokter"} asChild>
+            <Link href={"/../listDokter"} asChild>
               <TouchableOpacity style={[styles.card]}>
                 <Image source={require('../../../assets/images/doctor.png')} style={[styles.iconMenu, {marginLeft: 12}]}/>
                 <Text style={styles.iconText}>Chat Dokter</Text>
@@ -132,13 +132,6 @@ const HomePage: React.FC<{navigation:any}> = ({navigation}) => {
               </TouchableOpacity>
             </Link>
           </View>
-
-          {/* <View style={styles.forYouLayout}>
-            <TouchableOpacity style={styles.card}>
-              <Image source={require('../../../assets/images/statistics.png')} style={styles.iconMenu}/>
-              <Text style={[styles.iconText, {textAlign:'center'}]}>Grafik Perkembangan</Text>
-            </TouchableOpacity>
-          </View> */}
 
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Cek Info Kesehatan</Text>

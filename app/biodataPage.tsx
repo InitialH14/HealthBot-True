@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, TextInput } from "react-native";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { Color, FontFamily, Border, FontSize } from "./GlobalStyles";
 import { Link } from "expo-router";
 
 const BiodataPage = () => {
@@ -12,13 +13,14 @@ const BiodataPage = () => {
         style={[styles.harapMengisiData, styles.lanjutTypo]}
       >{`Harap Mengisi Data diri
 Anda!`}</Text>
-      <View style={styles.biodataPageChild} />
+      <Text style={[styles.namaLengkap, styles.usiaTypo]}>Nama Lengkap</Text>
+      <TextInput style={styles.biodataPageChild}/>
       <View style={[styles.biodataPageItem, styles.biodataLayout]} />
       <View style={[styles.biodataPageInner, styles.biodataLayout]} />
       <View style={[styles.rectangleView, styles.rectangleViewBorder]} />
       <View style={styles.biodataPageChild1} />
       <View style={[styles.biodataPageChild2, styles.rectangleViewBorder]} />
-      <Text style={[styles.namaLengkap, styles.usiaTypo]}>Nama Lengkap</Text>
+      
       <Text style={[styles.pekerjaan, styles.usiaTypo]}>Pekerjaan</Text>
       <Text style={[styles.usia, styles.usiaTypo]}>Usia</Text>
       <Text style={[styles.jenisKelamin, styles.usiaTypo]}>Jenis kelamin</Text>
@@ -26,15 +28,6 @@ Anda!`}</Text>
         Nomor Handphone
       </Text>
       <Text style={[styles.tanggalLahir, styles.usiaTypo]}>Tanggal Lahir</Text>
-      <Link href={"/quesioner"} asChild>
-            <Pressable
-
-      style={[styles.rectangleParent, styles.groupChildLayout]}
-      >
-      <View style={[styles.groupChild, styles.groupChildLayout]} />
-      <Text style={styles.lanjutTypo}>Lanjut</Text>
-      </Pressable>
-      </Link>
       
     </View>
   );
@@ -43,61 +36,52 @@ Anda!`}</Text>
 const styles = StyleSheet.create({
   lanjutTypo: {
     textAlign: "center",
-    color: 'Black',
-    fontFamily: "poppinsBold",
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    left: "50%",
-    position: "absolute",
   },
   biodataLayout: {
     height: 43,
     width: 265,
     left: 48,
     borderWidth: 2,
-    borderColor: "colorDimgray",
+    borderColor: Color.colorDimgray,
     borderStyle: "solid",
-    borderRadius: 20,
-    position: "absolute",
+    borderRadius: Border.br_xl,
   },
   rectangleViewBorder: {
     left: 47,
     height: 45,
     borderWidth: 2,
-    borderColor: "Dimgray",
+    borderColor: Color.colorDimgray,
     borderStyle: "solid",
-    borderRadius: 20,
-    position: "absolute",
+    borderRadius: Border.br_xl,
   },
   usiaTypo: {
     opacity: 0.5,
     textAlign: "left",
-    fontSize: 8,
-    color: "Black",
-    fontFamily: "poppinsBold",
+    fontSize: FontSize.size_xs,
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsBold,
     fontWeight: "700",
-    position: "absolute",
   },
   groupChildLayout: {
     width: 252,
     height: 45,
     left: "50%",
-    position: "absolute",
   },
   harapMengisiData: {
-    marginLeft: -144,
     top: 68,
-    fontSize: 5,
+    fontSize: FontSize.size_xl,
   },
   biodataPageChild: {
-    top: 178,
     left: 45,
     height: 45,
     borderWidth: 2,
-    borderColor: "Dimgray",
+    borderColor: Color.colorDimgray,
     borderStyle: "solid",
     width: 268,
-    borderRadius: 24,
-    position: "absolute",
+    borderRadius: Border.br_xl,
   },
   biodataPageItem: {
     top: 251,
@@ -116,10 +100,9 @@ const styles = StyleSheet.create({
     left: 48,
     height: 45,
     borderWidth: 2,
-    borderColor: "Dimgray",
+    borderColor: Color.colorDimgray,
     borderStyle: "solid",
-    borderRadius: 24,
-    position: "absolute",
+    borderRadius: Border.br_xl,
   },
   biodataPageChild2: {
     top: 394,
@@ -129,31 +112,31 @@ const styles = StyleSheet.create({
     top: 160,
     left: 49,
     textAlign: "left",
-    fontSize: 8,
+    fontSize: FontSize.size_xs,
   },
   pekerjaan: {
     top: 302,
     left: 49,
     textAlign: "left",
-    fontSize: 8,
+    fontSize: FontSize.size_xs,
   },
   usia: {
     top: 233,
     left: 49,
     textAlign: "left",
-    fontSize: 8,
+    fontSize: FontSize.size_xs,
   },
   jenisKelamin: {
     top: 376,
     left: 49,
     textAlign: "left",
-    fontSize: 8,
+    fontSize: FontSize.size_xs,
   },
   nomorHandphone: {
     top: 536,
     left: 49,
     textAlign: "left",
-    fontSize: 8,
+    fontSize: FontSize.size_xs,
   },
   tanggalLahir: {
     top: 453,
@@ -162,21 +145,20 @@ const styles = StyleSheet.create({
   groupChild: {
     marginLeft: -126,
     top: 0,
-    backgroundColor: "Aqua",
-    borderRadius: 24,
+    backgroundColor: Color.colorAqua,
+    borderRadius: Border.br_xl,
     width: 252,
   },
   lanjut: {
     marginLeft: -32,
     top: 11,
-    fontSize: 10,
+    fontSize: FontSize.size_mini,
   },
   rectangleParent: {
     marginLeft: -125,
-    top: 648,
   },
   biodataPage: {
-    backgroundColor: "White",
+    backgroundColor: Color.colorWhite,
     flex: 1,
     width: "100%",
     height: 800,

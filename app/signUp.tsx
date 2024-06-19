@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const Signuppage: React.FC<{navigation:any}> = ({navigation}) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [urlLogin, setUrlLogin] = useState<string>('');
+  const [urlLogin, setUrlLogin] = useState<string>('/biodataPage');
   const [isShown, setIsShown] = useState<boolean>(false);
 
   const auth = getAuth(app);
@@ -29,7 +29,7 @@ const Signuppage: React.FC<{navigation:any}> = ({navigation}) => {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       if (res){
         console.log('User created successfully!');
-        setUrlLogin("/input");
+        setUrlLogin("/biodataPage");
       }
       } catch (error) {
         console.error('User signed in successfully!', error);
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   buttonContainer: {
-    paddingHorizontal: 60
+    paddingHorizontal: 0
   }
 });
 
