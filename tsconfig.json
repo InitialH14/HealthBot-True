@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/menuDiet1.js", "app/menuDiet2.js"  ]
+, "app/menuDiet1.tsx", "app/menuDiet2.tsx"  ]
 }

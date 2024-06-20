@@ -27,7 +27,7 @@ const RekomendasiMenuDietScreen: React.FC<RekomendasiMenuDietScreenProps> = ({ n
           <Text style={styles.textDay}>Senin</Text>
         </TouchableOpacity>
         </Link>
-        <Link href={"/menuDiet1"} asChild>
+        <Link href={"/menuDiet2"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/salad.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Selasa</Text>
