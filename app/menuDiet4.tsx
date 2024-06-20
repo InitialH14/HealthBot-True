@@ -17,10 +17,10 @@ const { width } = Dimensions.get('window');
 
 const dummyMenu = [{
     "menu": "1",
-    "url" : require('../assets/menudiet/ayampanggang.jpg')
+    "url" : require('../assets/menudiet/india.jpg')
 }, {
     "menu": "2",
-    "url" : require('../assets/menudiet/ayampepes.jpg')
+    "url" : require('../assets/menudiet/kungpao.jpg')
 },]
 
 const RekomendasiMenuDiet: React.FC<{navigation:any}> = ({navigation}) => {

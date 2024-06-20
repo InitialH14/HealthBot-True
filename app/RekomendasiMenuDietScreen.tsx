@@ -35,30 +35,40 @@ const RekomendasiMenuDietScreen: React.FC<RekomendasiMenuDietScreenProps> = ({ n
         </Link>
       </View>
       <View style={styles.row}>
+        <Link href={"/menuDiet3"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/orange-juice.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Rabu</Text>
         </TouchableOpacity>
+        </Link>
+        <Link href={"/menuDiet4"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/milk.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Kamis</Text>
         </TouchableOpacity>
+        </Link>
       </View>
       <View style={styles.row}>
+      <Link href={"/menuDiet5"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/chicken-leg.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Jumat</Text>
         </TouchableOpacity>
+        </Link>
+        <Link href={"/menuDiet6"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/broccoli.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Sabtu</Text>
         </TouchableOpacity>
+        </Link>
       </View>
       <View style={styles.singleRow}>
+        <Link href={"/menuDiet6"} asChild>
         <TouchableOpacity style={styles.card}>
           <Image source={require("../assets/images/banana.png")} style={styles.iconMenu}/>
           <Text style={styles.textDay}>Minggu</Text>
         </TouchableOpacity>
+        </Link>
       </View>
     </ScrollView>
   );

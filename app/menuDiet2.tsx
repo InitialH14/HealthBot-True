@@ -17,10 +17,10 @@ const { width } = Dimensions.get('window');
 
 const dummyMenu = [{
     "menu": "1",
-    "url" : require('../assets/menudiet/kungpao.jpg')
+    "url" : require('../assets/menudiet/cilantro.jpg')
 }, {
     "menu": "2",
-    "url" : require('../assets/menudiet/laksa.jpg')
+    "url" : require('../assets/menudiet/dory.jpg')
 },]
 
 const RekomendasiMenuDiet: React.FC<{navigation:any}> = ({navigation}) => {
@@ -28,7 +28,7 @@ const RekomendasiMenuDiet: React.FC<{navigation:any}> = ({navigation}) => {
   return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <ImageBackground source={require("../assets/menudiet/cilantro.jpg")} resizeMode="cover" style={styles.header}>
+          <ImageBackground source={require("../assets/menudiet/menu.jpg")} resizeMode="cover" style={styles.header}>
             <TouchableOpacity onPress={() => router.back()}>
               <Ionicons name="arrow-back-outline" color="#FFF" size={30}/>
             </TouchableOpacity>

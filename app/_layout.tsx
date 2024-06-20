@@ -31,8 +31,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }}/>
         <Stack.Screen name="signUp" options={{ headerShown: false }}/>
-        <Stack.Screen name="Signinpage" options={{ headerShown: false }} />
-        <Stack.Screen name="biodataPage" options={{ headerShown: false }} />
+        <Stack.Screen name="biodata" options={{ headerShown: false }} />
         <Stack.Screen name="quesioner" options={{ headerShown: false }} />
         <Stack.Screen name="RekomendasiOlahraga" options={{ headerShown: false }}/>
         <Stack.Screen name="RekomendasiMenuDietScreen" options={{ headerShown: false }}/>
@@ -43,7 +42,9 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="listDokter" options={{ headerShown: false }} />
         <Stack.Screen name="menuDiet1" options={{ headerShown: false }} />
-
+        <Stack.Screen name="menuDiet2" options={{ headerShown: false }} />
+        <Stack.Screen name="menuDiet3" options={{ headerShown: false }} />
+        <Stack.Screen name="menuDiet4" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
