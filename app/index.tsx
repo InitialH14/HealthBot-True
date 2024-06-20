@@ -1,5 +1,3 @@
-
-=======
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
@@ -22,7 +20,7 @@ interface Login {
 
 const app = initializeApp(firebaseConfig);
 
-const Signinpage: React.FC<Login> = (Login) => {
+const Signinpage: React.FC = () => {
   // const [email, setEmail] = useState<string>('');
   // const [password, setPassword] = useState<string>('');
   // const [user, setUser] = useState<string>('');
@@ -63,7 +61,7 @@ const Signinpage: React.FC<Login> = (Login) => {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
   };
 
-  const handleSignIn = () => {
+  const handleSignIn1 = () => {
     const startYear = parseInt(startDate1);
     const endYear = parseInt(endDate1);
     const leapYears: number[] = [];
@@ -74,7 +72,8 @@ const Signinpage: React.FC<Login> = (Login) => {
       }
     }
 
-    setResult(leapYears);
+    setResult1(leapYears);
+  }
 
   const handleSignIn = () => {
     const start = new Date(startDate);
@@ -145,10 +144,13 @@ const Signinpage: React.FC<Login> = (Login) => {
           onChangeText={setEndDate1}
           keyboardType="numeric"
         />
-        <Text style={{ marginTop: 20 }}>Tahun kabisat antara {startDate} dan {endDate}:</Text>
+        <TouchableOpacity style={styles.button} onPress={handleSignIn1}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
+        <Text style={{ marginTop: 20 }}>Tahun kabisat antara {startDate1} dan {endDate1}:</Text>
       <View>
         {result.map((year, index) => (
-          <Text key={index}>{year}</Text>
+          <Text key={index}>{year.toDateString()}</Text>
         ))}
       </View>
       {/* <View style={styles.inputContainer}>
@@ -235,4 +237,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Signinpage;
+export default Signinpage
