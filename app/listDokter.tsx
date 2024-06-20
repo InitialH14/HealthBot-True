@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, View, Text,Image } from "react-native";
 import { Padding, FontFamily, FontSize, Color, Border } from "./GlobalStyles";
 
-const ListDokter = () => {
+const listDokter = () => {
   return (
     <View style={styles.listdokter}>
       <View style={[styles.rectangleParent, styles.groupChildLayout]}>
@@ -14,9 +14,7 @@ const ListDokter = () => {
         <View style={[styles.component1Wrapper, styles.wrapperSpaceBlock]}>
           <View style={[styles.component1, styles.component1FlexBox]}>
             <Image
-              style={styles.layer1Icon}
-            
-              
+              style={styles.layer1Icon}  
             />
             <Text style={[styles.healthbot, styles.healthbotFlexBox]}>
               HEALTHBOT
@@ -876,4 +874,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListDokter;
+export default listDokter;
