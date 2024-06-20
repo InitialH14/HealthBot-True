@@ -1,6 +1,6 @@
 var config = {
-    newsApiURL : ``,
-    GPT_KEY: ""
+    newsApiURL : "",
+    url: ""
    }
 
 export default config
